@@ -1,0 +1,14 @@
+com/hostelize/ReactNativeFlipper.java
+ com.hostelize.ReactNativeFlipper
+ com.hostelize.ReactNativeFlipper$1
+ com.hostelize.ReactNativeFlipper$2
+ com.hostelize.ReactNativeFlipper$2$1
+com/hostelize/MainActivity.java
+ com.hostelize.MainActivity
+com/hostelize/BuildConfig.java
+ com.hostelize.BuildConfig
+com/hostelize/MainApplication.java
+ com.hostelize.MainApplication
+ com.hostelize.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

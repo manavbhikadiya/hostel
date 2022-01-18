@@ -1,0 +1,7 @@
+To start the app 
+Cd Hostelize
+npx react-ative start
+
+another terminal
+Cd Hostelize
+npx react-native run-android

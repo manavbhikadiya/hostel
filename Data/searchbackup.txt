@@ -1,0 +1,214 @@
+//@ refresh
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React, { useState,useEffect } from 'react';
+import { View,Text,StyleSheet,Image, Dimensions,Animated,ScrollView, TouchableOpacity, TextInput } from 'react-native';
+import { Icon } from 'react-native-eva-icons';
+import { Searchbar } from 'react-native-paper';
+import * as Animatable from 'react-native-animatable';
+
+
+
+const {width,height} = Dimensions.get('screen');
+
+const SearchScreen =  ({navigation}) =>{
+   
+
+    const [name,setName] = useState([]);
+   
+    const [data,setData] = React.useState({
+        search:''
+    })
+
+    const Search = (val) =>{
+        if(val.length !== 0){
+            setData({
+                ...data,
+                search:val,
+            })
+        }
+    }
+
+    var url = "https://manavapi.herokuapp.com/hostel";
+
+    useEffect(()=>{
+        getdata();
+    },[]);
+
+    const getdata = () =>{
+        
+    fetch(`${url}`)
+    .then(response => response.json())
+    .then(data=>setName(data));
+    }
+
+
+    return(
+        <View style={styles.container}>
+
+            <View style={styles.header}>
+                <Icon style={{marginLeft:20}} name='menu' fill="#000000" width={25} height={25} onPress={()=>navigation.openDrawer()}/>
+                <TextInput
+                        placeholder="Search"
+                        placeholderTextColor="#228A6B"
+                        autoCapitalize="characters"
+                        autoCompleteType="name"
+                        onChangeText={(val)=>Search(val)}
+                        style={{color:"#228A6B",borderBottomWidth:1,marginTop:-10,height:50,width:width-100,borderBottomColor:"#228A6B",marginLeft:20,}}
+                    />
+            </View>
+            <View style={{flex:1}}>
+
+                <ScrollView
+                showsVerticalScrollIndicator={false}
+                style={{backgroundColor:"#fff"}}
+                >
+                    {
+                        name.map((hostel)=>(
+                            data.search == hostel.college_name ?
+                            hostel.hostels.map((hostels,index)=>(
+                                <View style={styles.cardcontainer} key={index}>
+                                <Animatable.View style={[styles.fixed,{padding:1}]}
+                                    animation="fadeInUp"
+                                >
+                                    <Image style={{width:85,height:80}} source={require('../assets/forest.png')}/>
+                                </Animatable.View>
+                                    <View style={styles.sections}>
+                                        <Text style={styles.collegename}>{hostel.college_name}</Text>
+                                        <Text style={styles.hostelname}>{hostels.hostel_name}</Text>
+                                        <Text style={styles.roomleft}>8 rooms are left</Text>
+                                        <Text style={styles.managername}>{hostels.manager_name}</Text>
+                                    </View>
+                                    <View style={styles.sections}>
+                                        <Text style={styles.km}>3.2km</Text>
+                                        <Text style={styles.from}>From {hostel.college_name}</Text>
+                                        <View style={{flexDirection:"row",marginTop:20}}>
+                                                <Icon name='phone' fill="#228A6B" width={15} height={15}/>    
+                                            <Text style={styles.helpline}>Help Line</Text>
+                                        </View>
+                                        <Text style={styles.contactnumber}>+91{hostel.helpline_no}</Text>
+                                    </View>
+                                    <Animatable.View style={[styles.sections,{alignItems:"center"}]}
+                                        animation="bounceIn"
+                                    >
+                                        <TouchableOpacity style={{backgroundColor:"#F26161",width:120,height:35,borderRadius:30,justifyContent:"center",alignItems:"center"}}>
+                                            <Text style={{color:"white",fontSize:12}}>View on map</Text>
+                                        </TouchableOpacity>
+                                    </Animatable.View>
+                                </View>
+                            ))
+                          :null
+                        ))
+                    }
+                    
+                </ScrollView>
+            </View>
+        </View>
+    );
+}
+
+const SearchStack = createStackNavigator();
+
+
+const SearchStackScreen = ({navigation}) =>{
+
+    return(
+        <SearchStack.Navigator headerMode="none">
+            <SearchStack.Screen name="SearchScreen" component={SearchScreen}>
+            </SearchStack.Screen>
+        </SearchStack.Navigator>
+    )
+}
+
+
+export default SearchStackScreen;
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:"#fff",
+    },
+    header:{
+        flexDirection:"row",
+        marginTop:45,
+        backgroundColor:"#fff",
+        
+    },
+    title:{
+        fontSize:20,
+        fontWeight:"bold",
+        marginTop:-4,
+        color:"#ff4d4d"
+    },
+    cardcontainer:{
+        position:"relative",
+        flexDirection:"row",
+        height:150,
+        padding:15,
+        marginTop:20,
+        borderRadius:20,
+        backgroundColor:"#fff",
+        elevation:10,
+        margin:15,
+    },
+    sections:{
+        flex:1,
+        backgroundColor:"transparent",
+    },
+    collegename:{
+        color:"#228A6B",
+        fontSize:18,
+        fontWeight:"bold",
+        textTransform:"uppercase"
+    },
+    hostelname:{
+        color:"#3f3d56",
+        fontSize:15,
+        marginTop:5,
+        fontWeight:"bold",
+    },
+    roomleft:{
+        color:"#ff4d4d",
+        fontWeight:"bold",
+        fontSize:12,
+        marginTop:8,
+    },
+    km:{
+        color:"#3f3d56",
+        fontSize:20,
+        fontWeight:"bold",
+    },
+    from:{
+        color:"#228A8B",
+        fontSize:13,
+        marginTop:3
+    },
+    searchBar:{
+        backgroundColor:"#fff",
+        marginTop:20,
+        marginBottom:10,
+        elevation:24,
+        padding:5,
+        justifyContent:"center",
+        alignItems:"center",
+        height:65
+    },
+    managername:{
+        fontSize:14,
+        marginTop:5.5,
+        color:"#0044cc",
+        fontWeight:"200"
+    },
+    helpline:{
+        color:"#000",
+        fontSize:15,
+        marginTop:-5,
+        fontWeight:"300",
+        marginLeft:10,
+    },
+    fixed: {
+        position: 'absolute',
+        right:10,
+        bottom:0
+      }
+})

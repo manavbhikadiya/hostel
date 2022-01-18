@@ -1,0 +1,125 @@
+// @refresh reset
+import React,{useEffect, useState } from 'react';
+import { View,Text,StyleSheet,Button,Image,Alert, TouchableOpacity } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import MapView,{Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import { CommonActions } from '@react-navigation/native';
+import { Icon } from 'react-native-eva-icons';
+
+
+var datas;
+
+const ProfileScreen =  ({navigation})=>{
+
+
+    if(datas == null){
+       return(  
+       <View style={styles.container}> 
+        <MapView
+        provider={PROVIDER_GOOGLE} 
+        style={styles.map}
+        region={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
+
+        }}
+        >
+       <Marker
+           coordinate={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+           }}
+           title="surat"
+           description="This is Kathmandu"
+       />
+        </MapView>
+        <TouchableOpacity  style={styles.touchableOpacityStyle}>
+           <Icon  name="refresh" width={25} height={25} fill="red" />
+        </TouchableOpacity>
+    </View>)
+    }else{
+
+    return(
+        <View style={styles.container}>
+         <MapView
+         provider={PROVIDER_GOOGLE} 
+         style={styles.map}
+         region={{
+            latitude: datas.latitude,
+            longitude: datas.longitude,
+            latitudeDelta: datas.latitudeDelta,
+            longitudeDelta: datas.longitudeDelta,
+ 
+         }}
+         >
+        <Marker
+            coordinate={{
+                latitude: datas.latitude,
+                longitude: datas.longitude,
+            }}
+            title={datas.name}
+            description="This is Kathmandu"
+        />
+         </MapView>
+         <TouchableOpacity  style={styles.touchableOpacityStyle}>
+           <Icon  name="refresh" width={25} height={25} fill="red" />
+        </TouchableOpacity>
+     </View>
+    );
+        }
+}
+
+const ProfileStack = createStackNavigator();
+
+const ProfileStackScreen = ({navigation,route}) =>{
+
+    datas = route.params;
+
+    return(
+        <ProfileStack.Navigator headerMode="none">
+            <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen}
+        ></ProfileStack.Screen>
+        </ProfileStack.Navigator>
+    )
+}
+
+
+export default ProfileStackScreen;
+
+const styles = StyleSheet.create({
+    container:{
+        position:"relative",
+        flex:1,
+        backgroundColor:"#fff"
+    },
+    header:{
+        flexDirection:"row",
+        marginTop:45,
+        backgroundColor:"#fff",
+        justifyContent:"space-between",   
+    },
+    map:{
+        flex:1
+    },
+    touchableOpacityStyle: {
+        position: 'absolute',
+        width: 50,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor:"#fff",
+        borderRadius:50,
+        left:20,
+        top:20,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 11,
+        },
+        shadowOpacity: 0.55,
+        shadowRadius: 14.78,
+        elevation: 22,
+      },
+})

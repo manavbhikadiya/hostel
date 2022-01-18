@@ -1,0 +1,164 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.hostelize"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="29" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\debug\AndroidManifest.xml:5:5-77
+11-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\debug\AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:4:5-67
+12-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:4:22-64
+13    <uses-permission android:name="android.permission.CAMERA" />
+13-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:5:5-64
+13-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:5:22-62
+14
+15    <uses-feature
+15-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:6:5-85
+16        android:name="android.hardware.camera"
+16-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:6:19-57
+17        android:required="false" />
+17-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:6:58-82
+18    <uses-feature
+18-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:7:5-91
+19        android:name="android.hardware.camera.front"
+19-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:7:19-63
+20        android:required="false" />
+20-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:7:64-88
+21
+22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+22-->[com.facebook.flipper:flipper:0.75.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:16:5-76
+22-->[com.facebook.flipper:flipper:0.75.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\a8f6015f96666ab8d93bfe5b64998bc8\jetified-flipper-0.75.1\AndroidManifest.xml:16:22-73
+23
+24    <queries>
+24-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-14:15
+25        <intent>
+25-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-13:18
+26            <action android:name="android.media.action.IMAGE_CAPTURE" />
+26-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-73
+26-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:21-70
+27        </intent>
+28    </queries>
+29
+30    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+30-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:5-81
+30-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:22-78
+31    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include required permissions for Google Maps API to run. -->
+31-->[:react-native-maps] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-81
+31-->[:react-native-maps] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-78
+32    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+32-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+32-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+33
+34    <uses-feature
+34-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+35        android:glEsVersion="0x00020000"
+35-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+36        android:required="true" />
+36-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+37
+38    <application
+38-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:9:5-29:19
+39        android:name="com.hostelize.MainApplication"
+39-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:10:7-38
+40        android:allowBackup="false"
+40-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:13:7-34
+41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+41-->[androidx.core:core:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:24:18-86
+42        android:debuggable="true"
+43        android:icon="@mipmap/ic_launcher"
+43-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:12:7-41
+44        android:label="@string/app_name"
+44-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:11:7-39
+45        android:theme="@style/AppTheme"
+45-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:14:7-38
+46        android:usesCleartextTraffic="true" >
+46-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\debug\AndroidManifest.xml:8:9-44
+47        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+47-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\debug\AndroidManifest.xml:11:9-86
+47-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\debug\AndroidManifest.xml:11:19-83
+48        <activity
+48-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:15:7-25:18
+49            android:name="com.hostelize.MainActivity"
+49-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:16:9-37
+50            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+50-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:18:9-86
+51            android:label="@string/app_name"
+51-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:17:9-41
+52            android:launchMode="singleTask"
+52-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:19:9-40
+53            android:windowSoftInputMode="adjustResize" >
+53-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:20:9-51
+54            <intent-filter>
+54-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:21:9-24:25
+55                <action android:name="android.intent.action.MAIN" />
+55-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:22:13-65
+55-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:22:21-62
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:23:13-73
+57-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:23:23-70
+58            </intent-filter>
+59        </activity>
+60
+61        <meta-data
+61-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:26:7-28:63
+62            android:name="com.google.android.geo.API_KEY"
+62-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:27:6-51
+63            android:value="AIzaSyClcYB5pd0eiuuQjUqUmrZJ10aImZ-NKCU" />
+63-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:28:6-61
+64
+65        <provider
+65-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:9-27:20
+66            android:name="androidx.core.content.FileProvider"
+66-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-62
+67            android:authorities="com.hostelize.provider"
+67-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-60
+68            android:exported="false"
+68-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-37
+69            android:grantUriPermissions="true" >
+69-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-47
+70            <meta-data
+70-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-26:58
+71                android:name="android.support.FILE_PROVIDER_PATHS"
+71-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:17-67
+72                android:resource="@xml/provider_paths" />
+72-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:17-55
+73        </provider>
+74
+75        <activity
+75-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:9-31:72
+76            android:name="com.yalantis.ucrop.UCropActivity"
+76-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-60
+77            android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> <!-- Needs to be explicitly declared on P+ -->
+77-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-69
+78        <uses-library
+78-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+79            android:name="org.apache.http.legacy"
+79-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+80            android:required="false" />
+80-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+81
+82        <activity
+82-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+83            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+83-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+84            android:exported="false"
+84-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+85            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+85-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+86
+87        <meta-data
+87-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+88            android:name="com.google.android.gms.version"
+88-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+89            android:value="@integer/google_play_services_version" />
+89-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+90    </application>
+91
+92</manifest>
