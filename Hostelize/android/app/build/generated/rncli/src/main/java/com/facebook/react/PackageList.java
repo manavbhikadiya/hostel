@@ -23,6 +23,8 @@ import com.reactfs.ReactFSPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-image-crop-picker
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
+// react-native-image-picker
+import com.imagepicker.ImagePickerPackage;
 // react-native-maps
 import com.airbnb.android.react.maps.MapsPackage;
 // react-native-reanimated
@@ -86,6 +88,7 @@ public class PackageList {
       new ReactFSPackage(),
       new RNGestureHandlerPackage(),
       new PickerPackage(),
+      new ImagePickerPackage(),
       new MapsPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),

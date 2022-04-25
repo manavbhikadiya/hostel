@@ -1,262 +1,266 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button,Image,TouchableOpacity,Dimensions } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
-// import { Ionicons } from '@expo/vector-icons';
-import * as Animatable from 'react-native-animatable';
-import { Icon } from 'react-native-eva-icons';
-import LottieView from 'lottie-react-native';
+import React, { useState } from "react";
+import {
+  Text,
+  StyleSheet,
+  PixelRatio,
+  Platform,
+  Dimensions,
+  View,
+  StatusBar,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+  Animated,
+  Alert,
+  Image,
+} from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import AsyncStorage from "@react-native-community/async-storage";
+import axios from "axios";
+import * as Animatable from "react-native-animatable";
+import { AuthContext } from '../component/Context';
+
+const { width, height } = Dimensions.get("window");
+
+const scale = width / 320;
+
+const normalize = (size) => {
+  const newSize = size * scale;
+  if (Platform.OS === "ios") {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize));
+  } else {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
+  }
+};
+
+const RegisterScreen = ({ navigation }) => {
+  const [username, setUserName] = useState(null);
+  const [mobile, setMobile] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { signUp } = React.useContext(AuthContext)
 
 
-const {width,height} = Dimensions.get("screen");
+  const handleEmail = (email) => {
+    setEmail(email);
+  };
 
-const RegisterScreen = ({navigation }) => {
+  const handlePassword = (password) => {
+    setPassword(password);
+  };
 
-    const [data,setData] = React.useState({
-        username:'',
-        password:'',
-        email:'',
-    })
+  const handleuserName = (userName) => {
+    setUserName(userName);
+  };
 
-    const textInputChange=(val) =>{
+  const handleMobile = (mobile) => {
+    setMobile(mobile);
+  };
 
-        if(val.length !== 0){
-            setData({
-                ...data,
-                username:val
-            })
+  const submitData = () => {
+    setIsLoading(true);
+    axios
+      .post(`https://hosteldashboards.herokuapp.com/user`, {
+        name: username,
+        email: email,
+        password: password,
+        mobile: mobile,
+      })
+      .then((res) => {
+        if (res) {
+          setTimeout(() => {
+            AsyncStorage.setItem("email", res.data.email)
+              .then(() => {
+                signUp();
+              })
+              .catch(() => {
+                navigation.navigate("LoginScreen");
+              });
+            setIsLoading(false);
+          }, 3000);
         }
+      })
+      .catch(() => {
+        Alert.alert(
+          "Authenticaion Error",
+          "Unable to Signup. Please try again later.",
+          [
+            {
+              text: "Cancel",
+              onPress: () => navigation.navigate("RegisterScreen"),
+              style: "cancel",
+            },
+            { text: "OK", onPress: () => navigation.navigate("RegisterScreen") },
+          ]
+        );
+        setIsLoading(false);
+      });
+  };
 
-    }
-
-    const passwordChange = (val) =>{
-        if(val.length !== 0){
-            setData({
-                ...data,
-                password:val,
-            })
-        }
-    }
-
-    const emailChange = (val) =>{
-        if(val.length !== 0){
-            setData({
-                ...data,
-                email:val,
-            })
-        }
-    }
-
-    return (
-        <View style={styles.container}>
-           {/* <Animatable.Image 
-            animation="fadeInUp"
-            source={require('../assets/forest.png')} style={styles.imagestyle}/> */}
-            <LottieView source={require('../assets/lf30_editor_pt5gthg7.json')} style={{position:"absolute",width:250,height:250,bottom:-12,left:0}}  autoPlay loop />
-           <Animatable.View
-           animation="flipInX"
-           style={styles.loginContainer}>
-                <View style={{position:"absolute",backgroundColor:"#F1B4B4",height:100,width:100,borderRadius:25,marginTop:-50,marginLeft:-30}}/>
-                <View style={styles.loginsec}>
-                    <View style={styles.widgetContainer}>
-                        <View style={styles.loginbuttonContainer}>
-                            <Animatable.Text 
-                            animation="slideInLeft"
-                            style={{
-                                color:"#228A6B",
-                                fontSize:30,
-                                fontWeight:"bold",
-                                marginLeft:30
-                                }}>Sign up
-                            </Animatable.Text>
-                        </View>
-                        <View style={styles.signupbuttonContainer}>
-                            <Image source={require('../assets/bulb.png')} style={{marginTop:10,marginLeft:25}}/>
-                        </View>
-                    </View>
-                </View>
-                <View style={{
-                        position:"absolute",
-                        backgroundColor:"#F1B4B4",
-                        height:100,
-                        width:100,
-                        borderRadius:25,
-                        marginTop:400,
-                        right:-30,
-                        }}/>
-                <View style={styles.cardbody}>
-                    <TextInput
-                        placeholder="Username"
-                        placeholderTextColor="#228A6B"
-                        onChangeText={(val)=>textInputChange(val)}
-                        style={{color:"#228A6B",borderBottomWidth:1,marginTop:15,height:50,width:width/1.5,borderBottomColor:"#228A6B"}}
-                    />
-                    <TextInput
-                        placeholder="Email"
-                        placeholderTextColor="#228A6B"
-                        onChangeText={(val)=>emailChange(val)}
-                        style={{color:"#228A6B",borderBottomWidth:1,marginTop:15,height:50,width:width/1.5,borderBottomColor:"#228A6B"}}
-                    />
-                    <TextInput
-                        placeholder="Password"
-                        placeholderTextColor="#228A6B"
-                        secureTextEntry={true}
-                        onChangeText={(val)=>passwordChange(val)}
-                        style={{color:"#228A6B",borderBottomWidth:1,marginTop:15,height:50,width:width/1.5,borderBottomColor:"#228A6B"}}
-                    />
-                    <TouchableOpacity style={[styles.loginbutton,{width:156,marginTop:25}]}
-                         onPress={()=>navigation.navigate('SplashScreen')}
-                    >
-                        <Text style={[styles.text,{color:"#fff"}]}>Sign up</Text>
-                    </TouchableOpacity>
-                    <View style={styles.socialMediaContainer}>
-                    <Icon name='google' style={{margin:15}} width={35} height={35} fill="red"/>
-                            <Icon name='facebook' style={{margin:15}} width={35} height={35} fill="#115497"/>
-                            <Icon name='twitter' style={{margin:15}} width={35} height={35} fill="#55ACEE"/>
-                    </View>
-                    
-                </View>
-            </Animatable.View>
-        </View>
-    )
-
-}
-
+  return (
+    <>
+      <View style={styles.container}>
+        <Image
+          source={require("../assets/loginBack.jpg")}
+          style={styles.image}
+        />
+        <Animatable.View style={styles.loginContainer} animation="flipInY">
+          <Text style={styles.welcomeText}>Register Now</Text>
+          <Text style={styles.subText}>Connect with us securely</Text>
+          <View style={styles.loginFields}>
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'#000'}
+              placeholder="Name"
+              onChangeText={(val) => handleuserName(val)}
+              value={username}
+            />
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'#000'}
+              placeholder="Email"
+              onChangeText={(val) => handleEmail(val)}
+              value={email}
+            />
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'#000'}
+              placeholder="Mobile"
+              onChangeText={(val) => handleMobile(val)}
+              value={mobile}
+            />
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'#000'}
+              placeholder="Password"
+              onChangeText={(val) => handlePassword(val)}
+              value={password}
+            />
+            <TouchableOpacity style={styles.LoginTextContainer}>
+              <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+                <Text style={styles.loginText}>Already have an Account?</Text>
+              </TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={submitData}>
+              {isLoading ? (
+                <Animated.View style={styles.loginButton}>
+                  <ActivityIndicator color="#fff" size={30} />
+                </Animated.View>
+              ) : (
+                <Animated.View style={styles.loginButton}>
+                  <Text style={styles.signInText}>Sign Up</Text>
+                </Animated.View>
+              )}
+            </TouchableOpacity>
+          </View>
+        </Animatable.View>
+      </View>
+    </>
+  );
+};
 export default RegisterScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#F2F2F2',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position:"relative",
-    },
-    imagestyle: {
-        position: "absolute", 
-        bottom: 0, 
-        width: 205, 
-        height: 200, 
-        left: 1
-    },
-    loginContainer:{
-        position:"relative",
-        borderRadius:25,
-        backgroundColor:"#fff",
-        marginTop:-100,
-        width:width/1.2,
-        height:460,
-        shadowColor: "#f2f2f2",
-        shadowOffset:{
-        width: 0,
-        height: 12,
-        },
-        shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-        elevation: 24,
-    },
-    loginsec:{
-        borderRadius:25,
-        display:"flex",
-        backgroundColor:"#fff",
-        flexDirection:"column",
-        width:width/1.2,
-        height:80,
-        
-    },
-    widgetContainer:{
-        flex:1,
-        height:50,
-        backgroundColor:"#fff",
-        display:"flex",
-        flexDirection:"row",
-        margin:20,
-        
-    },
-    cardbody:{
-        flex:1,
-        backgroundColor:"#fff",
-        borderBottomLeftRadius:25,
-        borderBottomRightRadius:25,
-        alignItems:"center"
-    },
-    loginbuttonContainer:{
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center"
-    },
-    signupbuttonContainer:{
-        flex:0.5,
-        justifyContent:"center",
-        alignItems:"center"
-    },
-    loginbutton:{
-        backgroundColor:"#228A6B",
-        width:99,
-        height:32,
-        justifyContent:"center",
-        alignItems:"center",
-        borderRadius:30,
-    },
-    signupbutton:{
-        backgroundColor:"#fff",
-        width:99,
-        height:32,
-        justifyContent:"center",
-        alignItems:"center",
-        borderRadius:30,
-    },
-    text:{
-        fontSize:14,
-        fontWeight:"bold"
-    },
-    
- fixed: {
-    position: 'absolute',
-    overflow:"hidden",
-    width:"100%",
-    height:"100%",
-    borderBottomRightRadius:75,
-  },
-  header:{
-    backgroundColor:"#228A6B",
-    opacity:0.8,
-    flex:1,
-    borderBottomRightRadius:75,
-    display:"flex",
-    justifyContent:"flex-start",
-    alignItems:"flex-end",
-  },
-  textConatiner:{
-      marginTop:50,
-      marginRight:50
-  },
-  appname:{
-      color:"#fff",
-      fontSize:25,
-      fontWeight:"bold",
-      fontFamily:"Roboto"
-  },
-  tagline:{
-    color:"#F1A790",
-    fontSize:12,
-    letterSpacing:2,
-    textTransform:"uppercase",
-    marginTop:10,
-    fontWeight:"bold",
-},
-textInput: {
+  container: {
     flex: 1,
-    marginTop: Platform.OS === 'ios' ? 0 : -12,
-    paddingLeft: 10,
-    color: '#05375a',
-},
-socialMediaContainer:{
-    backgroundColor:"#fff",
-    marginTop:20,
-    height:100,
-    flexDirection:"row",
-    justifyContent:"center",
-    alignItems:"center",
-    padding:10,
-},
-})
+    backgroundColor: "#f2f2f2",
+    paddingTop: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loginContainer: {
+    backgroundColor: "#fff",
+    width: wp(80),
+    height: hp(60),
+    padding: 15,
+    borderRadius: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 16.0,
+
+    elevation: 24,
+  },
+  welcomeText: {
+    fontSize: normalize(23),
+    fontWeight: "bold",
+    color: "#000066",
+    marginLeft: 12,
+    marginTop: 15,
+  },
+  subText: {
+    marginTop: 5,
+    color: "#cccccc",
+    fontSize: normalize(14),
+    marginLeft: 12,
+  },
+  loginFields: {
+    marginTop: 20,
+    // backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  input: {
+    width: wp(65),
+    height: 40,
+    margin: 12,
+    padding: 10,
+    backgroundColor: "#f6f6f6",
+    borderRadius: 8,
+    color: "#737373",
+  },
+  loginButton: {
+    width: wp(60),
+    height: hp(4.8),
+    backgroundColor: "#000066",
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 25,
+    shadowColor: "#999999",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+    elevation: 24,
+    marginTop: 15,
+  },
+  signInText: {
+    color: "#fff",
+    fontSize: normalize(14.5),
+    fontWeight: "bold",
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+    position: "absolute",
+    width: width,
+    height: height,
+    height: height * 1.1,
+    backgroundColor: "rgba(0,0,0,1)",
+    opacity: 0.4,
+  },
+  LoginTextContainer: {
+    marginTop: 10,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  forgotText: {
+    color: "#000",
+  },
+  loginText: {
+    color: "#000066",
+    fontWeight: "bold",
+  },
+});

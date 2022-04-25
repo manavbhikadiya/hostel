@@ -6,6 +6,7 @@ import RegisterScreen from './RegisterScreen';
 import LoginScreen from './LoginScreen';
 import OnBoarding from './OnBoarding'
 import AsyncStorage from '@react-native-community/async-storage';
+import ForgotPassword from './ForgotPassword';
 // import { Value } from 'react-native-reanimated';
 
 
@@ -37,6 +38,7 @@ const RootStackScreen = ({navigation}) =>{
             <RootStack.Screen name="OnBoarding" component={OnBoarding}/>
             <RootStack.Screen name="LoginScreen" component={LoginScreen}/>
             <RootStack.Screen name="RegisterScreen" component={RegisterScreen}/>
+            <RootStack.Screen name="ForgotPasswordScreen" component={ForgotPassword}/>
             </RootStack.Navigator>
         )
     }
@@ -45,6 +47,7 @@ const RootStackScreen = ({navigation}) =>{
             <RootStack.Navigator headerMode='none'>
             <RootStack.Screen name="LoginScreen" component={LoginScreen}/>
             <RootStack.Screen name="RegisterScreen" component={RegisterScreen}/>
+            <RootStack.Screen name="ForgotPasswordScreen" component={ForgotPassword}/>
             </RootStack.Navigator>
         )
     }

@@ -1,90 +1,157 @@
-import { NavigationContainer, useLinkProps } from '@react-navigation/native';
+import React, { useEffect, useState } from "react";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    Dimensions,
+    PixelRatio,
+    Platform,
+    TouchableOpacity,
+    ActivityIndicator,
+    RefreshControl
+} from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
-import React, { useEffect, useState } from 'react';
-import { View,Text,StyleSheet,Dimensions,Image, ImageBackground,Animated } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import * as Animatable from 'react-native-animatable';
-import { Button } from 'react-native-paper';
 import { Icon } from 'react-native-eva-icons';
-import LottieView from 'lottie-react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import Modals from './Modals';
+import { ScrollView } from "react-native-gesture-handler";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {
+    faHeart,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import axios from "axios";
+import AsyncStorage from "@react-native-community/async-storage";
 
 
-const {width,height} = Dimensions.get("window")
+const { width, height } = Dimensions.get("window");
 
-const ITEM_SIZE = 320
-var scale;
+const scale = width / 320;
 
-const LikeScreen =  ({route,navigation}) =>{
+const normalize = (size) => {
+    const newSize = size * scale;
+    if (Platform.OS === "ios") {
+        return Math.round(PixelRatio.roundToNearestPixel(newSize));
+    } else {
+        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
+    }
+};
 
-    const scrollY = React.useRef(new Animated.Value(0)).current;
+const wait = (timeout) => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+}
 
+const LikeScreen = ({ route, navigation }) => {
 
-    const [data,setData] = useState([]);
+    const [userId, setUserId] = useState(null);
+    const [favHostels, setFavHostels] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [refreshing, setRefreshing] = React.useState(false);
 
-    var url = "https://manavapi.herokuapp.com/hostel";
+    useEffect(() => {
+        getUserId();
+        getFavouriteData();
+    }, [])
 
+    const getUserId = async () => {
+        const id = await AsyncStorage.getItem('userID');
+        setUserId(id);
+    }
+    getUserId();
 
-    useEffect(()=>{
-        getdata();
-    },[]);
-
-
-    const getdata = () =>{
-        
-        fetch(`${url}`)
-        .then(response => response.json())
-        .then(data=>setData(data));
+    const getFavouriteData = async () => {
+        setIsLoading(true);
+        axios.get(`https://hosteldashboards.herokuapp.com/hostel/getFavouriteHostels/626105b7d617fb1a97addd12`)
+            .then((res) => {
+                setFavHostels(res.data);
+                setIsLoading(false);
+            })
+            .catch((e) => {
+                setIsLoading(false);
+            })
     }
 
-    const setInputRange = (val) =>{
-        const inputRange = [
-            -1,
-            0,
-            ITEM_SIZE * val,
-            ITEM_SIZE * (val + 2)
-        ]
-    
-        scale = scrollY.interpolate({
-            inputRange,
-            outputRange:[1,1,1,0]
-        })  
-     }
-    
-    return(
-        <View style={styles.container}> 
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        wait(2000).then(() => {
+            setRefreshing(false)
+            getFavouriteData();
+        });
+    }, []);
+
+
+    return (
+        <View style={styles.HomeScreenContainer}>
             <View style={styles.header}>
-            <Icon style={{marginLeft:20}} name='menu' fill="#000000" width={25} height={25} onPress={()=>navigation.openDrawer()}/>
+                <Icon style={{ marginLeft: 20 }} name='menu' fill="#000000" width={25} height={25} onPress={() => navigation.openDrawer()} />
             </View>
-            <View style={{flex:1}}>
-                <Animated.ScrollView
-                 onScroll={Animated.event(
-                    [{ nativeEvent:{contentOffset:{y:scrollY}}}],
-                    {useNativeDriver:true}
-                )}
-                >
-                    {
-                        data.map((hostel,index)=>(
-                            setInputRange(index),
-                            <Animated.View style={[styles.card,{transform:[{scale}]}]}>
-                                <Text>Hello</Text>
-                            </Animated.View>
-                        ))
+            <View style={styles.nearBySectionContainer}>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={refreshing}
+                            onRefresh={onRefresh}
+                            colors={["#000066", "#3F3D56", "#F26161"]}
+                            progressBackgroundColor="#fff"
+                        />
                     }
-                </Animated.ScrollView>
+                >
+                    <View style={styles.NearByViewAll}>
+                        <Text style={styles.headerText}>Favourites</Text>
+                    </View>
+                    {
+                        isLoading ?
+                            (<ActivityIndicator color="#000066" size={40} />)
+                            :
+                            (
+                                <ScrollView
+                                    showsVerticalScrollIndicator={false}
+                                >
+                                    {
+                                        favHostels?.map((hostels, index) => (
+                                            <TouchableOpacity>
+                                                <View style={styles.nearbyCard} key={index}>
+                                                    <View style={styles.heartContainer}>
+                                                        <FontAwesomeIcon style={styles.heartIcon} icon={faHeart} />
+                                                    </View>
+                                                    <View style={styles.nearbyHostelImageContainer}>
+                                                        <Image
+                                                            style={styles.nearbyHostelImage}
+                                                            source={{ uri: hostels.hostel_image }}
+                                                        />
+                                                    </View>
+                                                    <View style={styles.nearBydescription}>
+                                                        <Text style={styles.hostelName}>{hostels.hostel_name}</Text>
+                                                        <View style={styles.priceContainer}>
+                                                            <Text style={styles.priceText}>₹{hostels.room_price} / Year</Text>
+                                                        </View>
+                                                        <View style={styles.roomsAvailableContainer}>
+                                                            <Text style={styles.roomsAvailableText}>
+                                                                {hostels.rooms_available} Rooms Available
+                                                            </Text>
+                                                        </View>
+                                                    </View>
+                                                </View>
+                                            </TouchableOpacity>
+                                        ))
+                                    }
+                                </ScrollView>)
+                    }
+                </ScrollView>
             </View>
-     </View>
+        </View>
     );
 }
 
 const LikeStack = createStackNavigator();
 
 
-const LikeStackScreen = ({navigation}) =>{
+const LikeStackScreen = ({ navigation }) => {
 
-    return(
+    return (
         <LikeStack.Navigator headerMode="none">
             <LikeStack.Screen name="LikeScreen" component={LikeScreen}></LikeStack.Screen>
         </LikeStack.Navigator>
@@ -94,36 +161,118 @@ const LikeStackScreen = ({navigation}) =>{
 export default LikeStackScreen;
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        // justifyContent:"center",
-        // alignItems:"center",
-        backgroundColor:"#fff"
+    HomeScreenContainer: {
+        flex: 1,
+        backgroundColor: "#fff",
     },
-    header:{
-        flexDirection:"row",
-        marginTop:45,
-        backgroundColor:"#fff",
-        justifyContent:"space-between",
-    
+    header: {
+        flexDirection: "row",
+        marginTop: 45,
+        backgroundColor: "transparent",
+        justifyContent: "space-between",
+
     },
-    title:{
-        fontSize:20,
-        fontWeight:"bold",
-        marginTop:-4,
-        color:"#ff4d4d"
+    //Nearby section container
+    nearBySectionContainer: {
+        marginTop: 10,
+        paddingHorizontal: 30,
     },
-    bodyContainer:{
-        flex:1,
+    NearByViewAll: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
     },
-    image:{
-        width:"100%",
-        height:200,
-        resizeMode: 'cover'
+    headerText: {
+        fontSize: normalize(21),
+        fontStyle: "normal",
+        color: "#232323",
+        fontWeight: "bold",
     },
-   card:{
-       backgroundColor:"red",
-       height:300,
-       marginTop:20,
-   }
+    viewAllText: {
+        color: "#bfbfbf",
+        fontSize: normalize(16),
+        fontStyle: "normal",
+    },
+    nothingContainer: {
+        height: height / 1.5,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    newSearchButton: {
+        width: width / 2,
+        height: 40,
+        backgroundColor: "#f38172",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10,
+        marginTop: 8
+    },
+    newSearchText: {
+        fontSize: normalize(14),
+        fontWeight: "bold",
+        color: "#fff",
+    },
+    searchImage: {
+        width: 150,
+        height: 100,
+    },
+    nearbyCard: {
+        marginTop: 25,
+        flexDirection: "row",
+        backgroundColor: "#fff",
+        borderRadius: 20
+    },
+    nearbyHostelImageContainer: {
+        width: wp(30),
+        height: hp(15),
+        borderRadius: 20,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    nearbyHostelImage: {
+        width: 100,
+        height: 100,
+        borderRadius: 20,
+    },
+    nearBydescription: {
+        width: wp(50),
+        height: hp(10),
+        padding: 10,
+        marginLeft: 10,
+        borderRadius: 20,
+    },
+    hostelName: {
+        fontSize: normalize(16),
+        fontStyle: "normal",
+        color: "#242424",
+        fontWeight: "bold",
+    },
+    priceContainer: {
+        marginTop: 20,
+    },
+    priceText: {
+        fontSize: normalize(14),
+        fontWeight: "bold",
+        color: "#737373",
+    },
+    roomsAvailableContainer: {
+        marginTop: 10,
+    },
+    roomsAvailableText: {
+        color: "#333333",
+    },
+    heartContainer: {
+        width: wp(8),
+        height: wp(8),
+        borderRadius: 50,
+        backgroundColor: "#fff",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+        bottom: 10,
+        right: 10,
+    },
+    heartIcon: {
+        color: "#ff8080",
+    }
 })

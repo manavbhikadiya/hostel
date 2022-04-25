@@ -1,4 +1,4 @@
-#Wed May 05 16:12:58 IST 2021
+#Sat Apr 23 19:10:38 IST 2022
 base.2=C\:\\Users\\USER\\Desktop\\Reactnative tuts\\HostelSearching - Copy\\Hostelize\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_0.dex
 base.1=C\:\\Users\\USER\\Desktop\\Reactnative tuts\\HostelSearching - Copy\\Hostelize\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
 base.0=C\:\\Users\\USER\\Desktop\\Reactnative tuts\\HostelSearching - Copy\\Hostelize\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
@@ -22,10 +22,13 @@ renamed.2=classes3.dex
 path.0=classes.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+renamed.14=classes15.dex
 renamed.13=classes14.dex
 renamed.12=classes13.dex
 renamed.11=classes12.dex
 renamed.10=classes11.dex
+path.14=classes_12.dex
+base.14=C\:\\Users\\USER\\Desktop\\Reactnative tuts\\HostelSearching - Copy\\Hostelize\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_12.dex
 path.13=classes_9.dex
 base.13=C\:\\Users\\USER\\Desktop\\Reactnative tuts\\HostelSearching - Copy\\Hostelize\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_9.dex
 path.12=classes_8.dex

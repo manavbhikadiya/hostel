@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "#228A6B",
+        backgroundColor: "#f38172",
       },
       loginText:{
           color:"#fff",

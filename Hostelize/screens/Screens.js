@@ -6,7 +6,7 @@ import HomeScreen from './HomeScreen';
 // import HomeStackScreen from './HomeScreen';
 import OnBoarding from './OnBoarding'
 import ViewMore from './ViewMoreScreen';
-
+import MapScreen from './MapScreen';
 
 const ScreenStack = createStackNavigator();
 
@@ -16,6 +16,7 @@ const Screen = ({navigation,style}) =>{
             <ScreenStack.Navigator headerMode="none">
                 <ScreenStack.Screen name="HomeDrawer" component={MainTabScreen}/>
                 <ScreenStack.Screen name="ViewMore" component={ViewMore}/>
+                <ScreenStack.Screen name="MapScreen" component={MapScreen}/>
             </ScreenStack.Navigator>
         </Animated.View>
     )

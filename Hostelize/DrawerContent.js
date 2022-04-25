@@ -10,6 +10,7 @@ import {AuthContext} from './component/Context';
 import {Icon} from 'react-native-eva-icons';
 import ImagePicker from 'react-native-image-crop-picker';
 import AsyncStorage from '@react-native-community/async-storage';
+import axios from 'axios';
 
 
 const {width,height} = Dimensions.get("window");
@@ -19,15 +20,30 @@ const DrawerContent = ({props,navigation}) =>{
 
     const {signOut} = React.useContext(AuthContext);
 
-
     const [image,setImage] = useState("https://picsum.photos/200");
-
-
+    const [userId,setUserId] = useState(null);
+    
     AsyncStorage.getItem('imagepath')
     .then(req => JSON.parse(req))
     .then(json => setImage(json))
     .catch(error => Alert.alert(error));
 
+    AsyncStorage.getItem('userID')
+    .then((res)=>{
+        setUserId(res);
+    })
+    .catch((e)=>{
+        setUserId(null);
+    })
+
+    useEffect(()=>{
+        getUserId();
+    },[]);
+
+    const getUserId = async () => {
+        const id = await AsyncStorage.getItem('userID');
+        setUserId(id);
+    }
 
     const takePhotoFromLibrary = () =>{
         ImagePicker.openPicker({
@@ -36,12 +52,18 @@ const DrawerContent = ({props,navigation}) =>{
             cropping: true
           }).then(image => {
             // setImage(image.path);
+            console.log(image.filename);
             AsyncStorage.setItem('imagepath',JSON.stringify(image.path));
+            axios.post(`https://hosteldashboards.herokuapp.com/user/upload/${userId}`)
+            .then((res)=>{
+                navigation.navigate('HomeScreen');
+            })
+            .catch((e)=>{
+                navigation.navigate('HomeScreen');
+            })
           });
     }
        
-    
-    
     return(
         <View style={styles.container}>
             <View style={{marginTop:20,flexDirection:"row",justifyContent:"space-between"}}>
@@ -65,7 +87,7 @@ const DrawerContent = ({props,navigation}) =>{
                         }} size={75}/>
                         <View style={{position:"absolute", bottom:-5,right:-10}} >
                            <TouchableOpacity onPress={takePhotoFromLibrary} >
-                                <Icon name="camera" width={35} height={35} fill="red"/>
+                                <Icon name="camera" width={35} height={35} fill="#000066"/>
                            </TouchableOpacity>
                         </View>
                 </Animatable.View>
@@ -87,7 +109,7 @@ const DrawerContent = ({props,navigation}) =>{
                         style={{marginLeft:10}}
                         />
                     )}
-                    label="Home"
+                    label={() => <Text style={{ color: '#000066' }}>Home</Text>}
                     onPress={()=>{navigation.navigate('HomeScreen')}} />
 
                     <DrawerItem
@@ -100,7 +122,7 @@ const DrawerContent = ({props,navigation}) =>{
                         style={{marginLeft:10}}
                         />
                     )}
-                    label="Profile"
+                    label={() => <Text style={{ color: '#000066' }}>Profile</Text>}
                     onPress={()=>{navigation.navigate('ProfileScreen')}} />
 
                     <DrawerItem
@@ -113,7 +135,7 @@ const DrawerContent = ({props,navigation}) =>{
                         style={{marginLeft:10}}
                         />
                     )}
-                    label="Privacy"
+                    label={() => <Text style={{ color: '#000066' }}>Privacy</Text>}
                     onPress={()=>{navigation.navigate('PrivacyPolicy')}} />
                     
                     <DrawerItem
@@ -126,7 +148,7 @@ const DrawerContent = ({props,navigation}) =>{
                         style={{marginLeft:10}}
                         />
                     )}
-                    label="Likes"
+                    label={() => <Text style={{ color: '#000066' }}>Likes</Text>}
                     onPress={()=>{navigation.navigate('LikeScreen')}} />
 
 
@@ -140,16 +162,12 @@ const DrawerContent = ({props,navigation}) =>{
                         style={{marginLeft:10}}
                         />
                     )}
-                    label="Search"
+                    label={() => <Text style={{ color: '#000066' }}>Search</Text>}
                     onPress={()=>{navigation.navigate('SearchScreen')}} />
 
                         
                 </Drawer.Section>
-
-                {/* Dark Theme Section */}
-
-               
-                        
+         
                 <Drawer.Section style={styles.bottomDrawerSection}>
                     <DrawerItem
                     icon={({color,size})=>(
@@ -161,7 +179,7 @@ const DrawerContent = ({props,navigation}) =>{
                         style={{marginLeft:10}}
                         />
                     )}
-                    label="LogOut"
+                    label={() => <Text style={{ color: '#000066' }}>Logout</Text>}
                     onPress={()=>{signOut()}} />
 
                 </Drawer.Section>
@@ -226,11 +244,11 @@ const styles = StyleSheet.create({
 
     container:{
         flex:1,
-        backgroundColor:"#ffcc66",
+        backgroundColor:"#b3e0e5",
     },
     slider:{
         height: 125,
-        backgroundColor:"#ffcc66",
+        backgroundColor:"#b3e0e5",
         borderBottomRightRadius: 70,
     },
     footer:{
@@ -238,7 +256,7 @@ const styles = StyleSheet.create({
     },
     footerContent:{
         flex:1,
-        backgroundColor:"#ffcc66",
+        backgroundColor:"#b3e0e5",
         borderTopLeftRadius:70,
         // justifyContent:"center",
         alignItems:"center",

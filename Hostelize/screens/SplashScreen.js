@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         
     },
     tagname:{
-        color:"#228A6B",
+        color:"#000066",
         fontSize:30,
     },
     tagline:{
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     powerdby:{
-        color:"#228A6B",
+        color:"#000066",
         fontSize:10,
         position:"absolute",
         bottom:10,

@@ -8,6 +8,7 @@ import SplashScreen from './screens/SplashScreen';
 import { AuthContext } from './component/Context';
 import Animated from 'react-native-reanimated';
 import Screens from './screens/Screens'
+import AsyncStorage from '@react-native-community/async-storage';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,19 +18,50 @@ const App = ()=>{
   const [userToken,setUserToken] = React.useState(null);
   const [progress, setProgress] = useState(new Animated.Value(0));
 
+  console.disableYellowBox = true;
+
+  useEffect(()=>{
+    isUserLogin();
+  })
+
+  const isUserLogin = async() =>{
+    try {
+      const userID = await AsyncStorage.getItem('userID');
+      if(userID != null){
+        setUserToken(userID);
+      }else{
+        setUserToken(null);
+      }
+    } catch (error) {
+      console.log(error);
+      setUserToken(null)
+    }
+  }
   
   const authContext = React.useMemo(() => ({
-    signIn: () => {
-      setUserToken('fgkj');
-      setIsLoading(false);
+    signIn: async () => {
+      const userID = await AsyncStorage.getItem('userID');
+      if(userID != null){
+        setUserToken(userID);
+      }else{
+        setUserToken(null);
+      }
     },
-    signOut: () => {
-      setUserToken(null);
-      setIsLoading(false);
+    signOut: async () => {
+      try {
+        await AsyncStorage.removeItem('userID');
+        setUserToken(null);
+      } catch (error) {
+        console.log(error);
+      }
     },
-    signUp: () => {
-      setUserToken('fgkj');
-      setIsLoading(false);
+    signUp: async () => {
+      const userID = await AsyncStorage.getItem('userID');
+      if(userID != null){
+        setUserToken(userID);
+      }else{
+        setUserToken(null);
+      }
     },
   }), []);
 
@@ -76,11 +108,14 @@ const App = ()=>{
          contentContainerStyle={{flex:1}}
          drawerContentOptions={{
            activeBackgroundColor:"transparent",
-           activeTintColor:"green",
-           inactiveTintColor:"green",
+           activeTintColor:"red",
+           inactiveTintColor:"red",
+           labelStyle:{
+             color:"#000066"
+           }
          }}
          sceneContainerStyle={{
-           backgroundColor:"#ffcc66"
+           backgroundColor:"#b3e0e5"
          }}
          drawerContent={props =>{ setProgress(props.progress); return(<DrawerContent {...props}/>) } }>
 

@@ -14,6 +14,7 @@ MERGED from [:react-native-community_masked-view] C:\Users\USER\Desktop\Reactnat
 MERGED from [:react-native-file-manager] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-file-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-gesture-handler] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-34:12
+MERGED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-maps] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
 MERGED from [:react-native-safe-area-context] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
@@ -62,11 +63,11 @@ MERGED from [androidx.customview:customview:1.0.0] C:\Users\USER\.gradle\caches\
 MERGED from [androidx.transition:transition:1.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\ae1a1dddf9cea612695d8157e2ff38cd\transition-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2ee35bfe9d2e9019f071c4a047a96db2\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\361553562ce35cf8cf447832c4a7d1ec\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.core:core:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\3975ffd70914deb17405b14313b8e4ba\core-1.3.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\68e46c6270e367089657152a13ba630a\exifinterface-1.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bae4382a703142a8f82a100a412243f1\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\74153744c3b76afb34d0c28a686a981b\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\6e0f82970a69a6b386ee45a08ac362fe\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.exifinterface:exifinterface:1.1.0-beta01] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\644db9887bcf690060a06a795c4e8303\exifinterface-1.1.0-beta01\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\cbff631e500aff82164944184b49a648\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\5af1825acc1d96709826d913b19b2820\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
@@ -76,7 +77,7 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\USER\.gradle\caches\
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\15faa7fdc535e832982b4615d300cb77\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\27e0ecfbdce6f985a506017f5fd54aeb\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\268ebc0b2bd661fb18fff0cceeca14c7\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\e7b93b6dbe843c75921410ca66d82723\jetified-android-maps-utils-0.5\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4522e34b20fe549b1d44655a9a6cbe57\jetified-android-maps-utils-0.5\AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\5ff10ad0f2bea4b2419e86a549e99aac\jetified-fbcore-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\ffdaca04e33e18187dfc99a2b0ddad3b\jetified-ui-common-2.2.0\AndroidManifest.xml:2:1-9:12
 INJECTED from C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\debug\AndroidManifest.xml:2:1-13:12
@@ -133,6 +134,8 @@ MERGED from C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostel
 MERGED from C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:9:5-29:19
 MERGED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:5-32:19
 MERGED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:5-32:19
+MERGED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
 MERGED from [com.facebook.react:react-native:0.64.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\a56511b037fb04f244c71df782e66ef7\jetified-react-native-0.64.0\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.64.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\a56511b037fb04f244c71df782e66ef7\jetified-react-native-0.64.0\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.10.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\5fb5c0c623111e89d0cb2cc6cbe55df8\jetified-soloader-0.10.1\AndroidManifest.xml:11:5-20
@@ -153,14 +156,14 @@ MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\851cd8c44ebf76c5b47504ad4cc94222\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.core:core:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\3975ffd70914deb17405b14313b8e4ba\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\3975ffd70914deb17405b14313b8e4ba\core-1.3.1\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\e7b93b6dbe843c75921410ca66d82723\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\e7b93b6dbe843c75921410ca66d82723\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4522e34b20fe549b1d44655a9a6cbe57\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4522e34b20fe549b1d44655a9a6cbe57\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\3975ffd70914deb17405b14313b8e4ba\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:label
 		ADDED from C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:11:7-39
 		ADDED from C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:11:7-39
@@ -232,6 +235,8 @@ MERGED from [:react-native-gesture-handler] C:\Users\USER\Desktop\Reactnative tu
 MERGED from [:react-native-gesture-handler] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:6:5-8:41
 MERGED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:6:5-8:41
+MERGED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-maps] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -328,16 +333,16 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\USE
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2ee35bfe9d2e9019f071c4a047a96db2\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\361553562ce35cf8cf447832c4a7d1ec\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\361553562ce35cf8cf447832c4a7d1ec\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\d67cd79abd1ca209502f51c69d23182b\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\3975ffd70914deb17405b14313b8e4ba\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\3975ffd70914deb17405b14313b8e4ba\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\68e46c6270e367089657152a13ba630a\exifinterface-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\68e46c6270e367089657152a13ba630a\exifinterface-1.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bae4382a703142a8f82a100a412243f1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bae4382a703142a8f82a100a412243f1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\74153744c3b76afb34d0c28a686a981b\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\74153744c3b76afb34d0c28a686a981b\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\6e0f82970a69a6b386ee45a08ac362fe\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\6e0f82970a69a6b386ee45a08ac362fe\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.1.0-beta01] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\644db9887bcf690060a06a795c4e8303\exifinterface-1.1.0-beta01\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.exifinterface:exifinterface:1.1.0-beta01] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\644db9887bcf690060a06a795c4e8303\exifinterface-1.1.0-beta01\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\af9af86a2035b10a0514f89f66cf8a9a\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\cbff631e500aff82164944184b49a648\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
@@ -356,8 +361,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\USER\.gr
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\27e0ecfbdce6f985a506017f5fd54aeb\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\268ebc0b2bd661fb18fff0cceeca14c7\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\268ebc0b2bd661fb18fff0cceeca14c7\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\e7b93b6dbe843c75921410ca66d82723\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\e7b93b6dbe843c75921410ca66d82723\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4522e34b20fe549b1d44655a9a6cbe57\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4522e34b20fe549b1d44655a9a6cbe57\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
 MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\5ff10ad0f2bea4b2419e86a549e99aac\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\5ff10ad0f2bea4b2419e86a549e99aac\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\ffdaca04e33e18187dfc99a2b0ddad3b\jetified-ui-common-2.2.0\AndroidManifest.xml:5:5-7:41
@@ -416,6 +421,16 @@ ADDED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative t
 		ADDED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-69
 	android:name
 		ADDED from [:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-60
+provider#com.imagepicker.ImagePickerProvider
+ADDED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-71
+	android:exported
+		ADDED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:react-native-image-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-63
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from [:react-native-maps] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-81
 	android:name
@@ -446,8 +461,8 @@ ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gra
 		ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
 ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\e7b93b6dbe843c75921410ca66d82723\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\e7b93b6dbe843c75921410ca66d82723\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4522e34b20fe549b1d44655a9a6cbe57\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4522e34b20fe549b1d44655a9a6cbe57\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
 	android:value
 		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 	android:name

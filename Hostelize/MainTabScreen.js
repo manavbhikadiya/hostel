@@ -21,8 +21,8 @@ const MainTabScreen = ({style}) =>{
         // <Animated.View style={style}>
              <Tab.Navigator
             initialRouteName="HomeScreen"
-            activeColor="#ff4d4d"
-            inactiveColor="#228A6B"
+            activeColor="#4290B5"
+            inactiveColor="#000066"
             barStyle={{
                 position:"absolute",
                 paddingBottom:0,
