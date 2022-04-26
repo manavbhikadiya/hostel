@@ -62,15 +62,19 @@ const ProfileScreen = ({ navigation }) => {
     setMobile(mobile);
   };
 
-  useEffect(() => {
-    getUserId();
-    getUserData();
-  },[]);
+  AsyncStorage.getItem('userID')
+    .then((res)=>{
+        setUserId(res);
+    })
+    .catch((e)=>{
+        setUserId(null);
+    })
 
-  const getUserId = async () => {
-    const id = await AsyncStorage.getItem('userID');
-    setUserId(id);
-  }
+
+  useEffect(() => {
+    getUserData();
+  },[userId]);
+
 
   const getUserData = () => {
     setIsDataLoading(true);

@@ -58,23 +58,15 @@ const HomeScreen = ({ navigation }) => {
         )
     }
 
-    const getColor = () => {
-        if (COLORS.length - 1 == INDEX) {
-            INDEX = 0;
-        }
-        else {
-            INDEX++;
-        }
-        BG_COLOR = COLORS[INDEX];
-
-        return BG_COLOR
+    const refreshData = () => {
+        getdata();
     }
 
     return (
         <View style={{ width, height }}>
 
             <View style={styles.container}>
-                <ScrollView style={{ backgroundColor: "transparent",zIndex:10}}
+                <ScrollView style={{ backgroundColor: "transparent", zIndex: 10 }}
                     showsVerticalScrollIndicator={false}
                     refreshControl={
                         <RefreshControl
@@ -85,10 +77,13 @@ const HomeScreen = ({ navigation }) => {
                         />
                     }
                 >
-                    <ImageBackground source={require('../assets/darkForest.jpg')} resizeMode="cover" style={{ width: width,height:height/3}}>
+                    <ImageBackground source={require('../assets/darkForest.jpg')} resizeMode="cover" style={{ width: width, height: height / 3 }}>
                         <View style={styles.header}>
                             <TouchableOpacity>
                                 <Icon name='menu' style={{ marginLeft: 20 }} width={24} height={24} fill="#fff" onPress={() => navigation.openDrawer()} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Icon name='refresh' style={{ marginRight: 20 }} width={30} height={30} fill="#fff" onPress={refreshData} />
                             </TouchableOpacity>
                         </View>
                         <View style={{ backgroundColor: "transparent", height: 250 }}>
@@ -97,7 +92,7 @@ const HomeScreen = ({ navigation }) => {
                         </View>
                     </ImageBackground>
 
-                    <View style={{ backgroundColor: "#fff", borderTopLeftRadius: 40, borderTopRightRadius: 40, flex: 1,marginTop:-50 }}>
+                    <View style={{ backgroundColor: "#fff", borderTopLeftRadius: 40, borderTopRightRadius: 40, flex: 1, marginTop: -50 }}>
 
                         <View style={{ marginLeft: 25, borderBottomColor: "#000033", borderBottomWidth: 3, width: 100, marginTop: 20 }} >
                             <Text style={{ color: "#000033", fontWeight: "bold" }}>Top Colleges</Text>
@@ -121,66 +116,93 @@ const HomeScreen = ({ navigation }) => {
                             >
 
                                 {
-                                    name.map((hostel, index) => (
-                                        getColor(),
-                                        <View style={styles.cardView} key={index}>
-                                            <View>
-                                                <View style={{ marginLeft: 20, marginTop: 20 }}>
-                                                    <View style={{ flexDirection: "row" }}>
-                                                        <Text style={{ fontSize: 40, color: "#000066", fontWeight: "bold" }}>{hostel.hostels[0].kms}</Text>
-                                                        <Text style={{ marginTop: 32, marginLeft: 5, fontWeight: "bold", color: "#54b9c4" }}>KM</Text>
-                                                        <View style={{ flex: 1, flexDirection: "row-reverse" }}>
-                                                            <View style={{ backgroundColor: "#4290B5", height: 50, width: 150, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, justifyContent: "center", alignItems: "center" }}>
-                                                                <Text style={{ color: "#fff" }}>{hostel.hostels[0].hostel_name}</Text>
-                                                                <View style={{ backgroundColor: "white", borderRadius: 10, padding: 5, zIndex: 10, marginBottom: -30, marginTop: 10 }}>
-                                                                    {/* <Modals name={hostel.college_name}/> */}
-                                                                    <TouchableOpacity onPress={() => {
-                                                                        navigation.navigate('ViewMore', {
-                                                                            collegeName: hostel.college_name,
-                                                                        })
-                                                                    }} style={styles.viewmore}>
-                                                                        <Text style={{ color: "#000", fontSize: 12 }}>View more</Text>
-                                                                    </TouchableOpacity>
+                                    name?.map((hostel, index) => (
+                                        <>
+                                            {
+                                                hostel.hostels.length != 0 ? (
+                                                    <View style={styles.cardView} key={index}>
+                                                        <View>
+                                                            <View style={{ marginLeft: 20, marginTop: 20 }}>
+                                                                <View style={{ flexDirection: "row" }}>
+                                                                    <Text style={{ fontSize: 40, color: "#000066", fontWeight: "bold" }}>{hostel.hostels[0].kms}</Text>
+                                                                    <Text style={{ marginTop: 32, marginLeft: 5, fontWeight: "bold", color: "#54b9c4" }}>KM</Text>
+                                                                    <View style={{ flex: 1, flexDirection: "row-reverse" }}>
+                                                                        <View style={{ backgroundColor: "#4290B5", height: 50, width: 150, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, justifyContent: "center", alignItems: "center" }}>
+                                                                            <Text style={{ color: "#fff" }}>{hostel.hostels[0].hostel_name}</Text>
+                                                                            <View style={{ backgroundColor: "white", borderRadius: 10, padding: 5, zIndex: 10, marginBottom: -30, marginTop: 10 }}>
+                                                                                {/* <Modals name={hostel.college_name}/> */}
+                                                                                <TouchableOpacity onPress={() => {
+                                                                                    navigation.navigate('ViewMore', {
+                                                                                        collegeName: hostel.college_name,
+                                                                                    })
+                                                                                }} style={styles.viewmore}>
+                                                                                    <Text style={{ color: "#000", fontSize: 12 }}>View more</Text>
+                                                                                </TouchableOpacity>
+                                                                            </View>
+                                                                        </View>
+                                                                    </View>
+
                                                                 </View>
+                                                                <Text style={{ fontSize: 12, color: "#F26161" }}>From {hostel.college_name}</Text>
                                                             </View>
                                                         </View>
+                                                        <View style={{ borderBottomWidth: 1, borderBottomColor: "#b3e0e5", margin: 15 }} />
+                                                        <View style={{ marginLeft: 20 }}>
+                                                            <Text style={{ color: "#000066", fontWeight: "bold", fontSize: 12 }}>{hostel.hostels[0].rooms_available} Rooms are left</Text>
+                                                            <View style={{ position: "absolute", right: 0, marginRight: 15 }}>
+                                                                {
+                                                                    hostel.hostels[0].boys && hostel.hostels[0].girls ? 
+                                                                    (
+                                                                        <View style={{ justifyContent: "center", alignItems: "center" }}>
+                                                                            <Text style={{ fontWeight: "bold" }}>Boy's & Girl's Hostel</Text>
+                                                                        </View>
+                                                                    ) 
+                                                                    : 
+                                                                    hostel.hostels[0].boys ? 
+                                                                    (
+                                                                        <View style={{ justifyContent: "center", alignItems: "center" }}>
+                                                                            <Text style={{ fontWeight: "bold" }}>Boy's Hostel</Text>
+                                                                        </View>
+                                                                    ) 
+                                                                    : 
+                                                                    (
+                                                                        <View style={{ justifyContent: "center", alignItems: "center" }}>
+                                                                            <Text style={{ fontWeight: "bold" }}>Girl's Hostel</Text>
+                                                                        </View>
+                                                                    )
+                                                                }
+                                                            </View>
+                                                        </View>
+                                                        <View style={{ marginLeft: 20, marginTop: 20 }}>
+                                                            <TouchableOpacity onPress={() => {
+                                                                navigation.navigate('MapScreen', {
+                                                                    hostel_id: hostel.hostels[0].hostel_name,
+                                                                    latitude: hostel.hostels[0].latitude,
+                                                                    longitude: hostel.hostels[0].longitude,
+                                                                    hostel_name: hostel.hostels[0].hostel_name,
+                                                                    kms: hostel.hostels[0].kms,
+                                                                    college_name: hostel.college_name,
+                                                                    description: hostel.hostels[0].description,
+                                                                })
+                                                            }} style={{ backgroundColor: "#b3e0e5", width: 140, height: 35, borderRadius: 30, justifyContent: "center", alignItems: "center" }}>
+                                                                <Text style={{ color: "#000066", fontSize: 12 }}>View on map</Text>
+                                                            </TouchableOpacity>
+                                                        </View>
+                                                        <View style={{ position: "relative", marginLeft: 20, marginRight: 20, marginTop: 50, backgroundColor: '#00004d', height: 90, borderRadius: 10 }}>
+                                                            <View style={[styles.backgroundImage]}>
+                                                                <Image source={require('../assets/hostel2.png')} style={{ width: 200, height: 160, marginTop: -10, marginRight: -15 }} />
+                                                            </View>
 
+                                                            <Text style={{ color: "white", marginLeft: 20, marginTop: 10 }}>{hostel.hostels[0].manager_name}</Text>
+                                                            <Text style={{ color: "white", marginLeft: 20, marginTop: 10 }}>+91 {hostel.hostels[0].helpline_no}</Text>
+                                                        </View>
                                                     </View>
-                                                    <Text style={{ fontSize: 12, color: "#F26161" }}>From {hostel.college_name}</Text>
-                                                </View>
-                                            </View>
-                                            <View style={{ borderBottomWidth: 1, borderBottomColor: "#b3e0e5", margin: 15 }} />
-                                            <View style={{ marginLeft: 20 }}>
-                                                <Text style={{ color: "#000066", fontWeight: "bold", fontSize: 12 }}>{hostel.hostels[0].rooms_available} Rooms are left</Text>
-                                                <View style={{ position: "absolute", right: 0, marginRight: 15 }}>
-                                                    <View style={{ justifyContent: "center", alignItems: "center" }}>
-                                                        <Text style={{ fontWeight: "bold" }}>Boy's Hostel</Text>
-                                                    </View>
-                                                </View>
-                                            </View>
-                                            <View style={{ marginLeft: 20, marginTop: 20 }}>
-                                                <TouchableOpacity onPress={() => {
-                                                    navigation.navigate('MapScreen', {
-                                                        hostel_id: hostel.hostels[0].hostel_name,
-                                                        latitude: hostel.hostels[0].latitude,
-                                                        longitude: hostel.hostels[0].longitude,
-                                                        hostel_name: hostel.hostels[0].hostel_name,
-                                                        kms: hostel.hostels[0].kms,
-                                                        college_name: hostel.college_name
-                                                    })
-                                                }} style={{ backgroundColor: "#b3e0e5", width: 140, height: 35, borderRadius: 30, justifyContent: "center", alignItems: "center" }}>
-                                                    <Text style={{ color: "#000066", fontSize: 12 }}>View on map</Text>
-                                                </TouchableOpacity>
-                                            </View>
-                                            <View style={{ position: "relative", marginLeft: 20, marginRight: 20, marginTop: 50, backgroundColor: '#00004d', height: 90, borderRadius: 10 }}>
-                                                <View style={[styles.backgroundImage]}>
-                                                    <Image source={require('../assets/hostel2.png')} style={{ width: 200, height: 160, marginTop: -10, marginRight: -15 }} />
-                                                </View>
+                                                )
+                                                    :
+                                                    (null)
+                                            }
 
-                                                <Text style={{ color: "white", marginLeft: 20, marginTop: 10 }}>{hostel.hostels[0].manager_name}</Text>
-                                                <Text style={{ color: "white", marginLeft: 20, marginTop: 10 }}>+91 {hostel.hostels[0].helpline_no}</Text>
-                                            </View>
-                                        </View>
+                                        </>
                                     ))
                                 }
 

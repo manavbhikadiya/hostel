@@ -78,7 +78,7 @@ const SearchScreen = ({ navigation }) => {
                     placeholderTextColor="#000066"
                     autoCompleteType="name"
                     onChangeText={(val) => Search(val)}
-                    style={{ color: "#fff", borderBottomWidth: 1.5, marginTop: -10, height: 50, width: width - 100, borderBottomColor: "#000066", marginLeft: 20, }}
+                    style={{ color: "#000066", borderBottomWidth: 1.5, marginTop: -10, height: 50, width: width - 100, borderBottomColor: "#000066", marginLeft: 20, }}
                 />
             </View>
             <View style={{ flex: 1,justifyContent:"center" }}>
@@ -88,7 +88,7 @@ const SearchScreen = ({ navigation }) => {
                         : (
                             <ScrollView
                                 showsVerticalScrollIndicator={false}
-                                style={{ backgroundColor: "transparent" }}
+                                style={{ backgroundColor: "transparent", marginBottom:100 }}
                                 refreshControl={
                                     <RefreshControl
                                         refreshing={refreshing}

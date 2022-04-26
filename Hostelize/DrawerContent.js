@@ -22,7 +22,9 @@ const DrawerContent = ({props,navigation}) =>{
 
     const [image,setImage] = useState("https://picsum.photos/200");
     const [userId,setUserId] = useState(null);
-    
+    const [name,setName] = useState(null);
+    const [email,setEmail] = useState(null);
+
     AsyncStorage.getItem('imagepath')
     .then(req => JSON.parse(req))
     .then(json => setImage(json))
@@ -34,6 +36,22 @@ const DrawerContent = ({props,navigation}) =>{
     })
     .catch((e)=>{
         setUserId(null);
+    })
+
+    AsyncStorage.getItem('name')
+    .then((res)=>{
+        setName(res);
+    })
+    .catch((e)=>{
+        setName(null);
+    })
+
+    AsyncStorage.getItem('email')
+    .then((res)=>{
+        setEmail(res);
+    })
+    .catch((e)=>{
+        setEmail(null);
     })
 
     useEffect(()=>{
@@ -52,7 +70,6 @@ const DrawerContent = ({props,navigation}) =>{
             cropping: true
           }).then(image => {
             // setImage(image.path);
-            console.log(image.filename);
             AsyncStorage.setItem('imagepath',JSON.stringify(image.path));
             axios.post(`https://hosteldashboards.herokuapp.com/user/upload/${userId}`)
             .then((res)=>{
@@ -76,7 +93,7 @@ const DrawerContent = ({props,navigation}) =>{
                             onPress={()=>navigation.closeDrawer()}
                             />
                 </TouchableOpacity>
-                <Title style={styles.title}>Hostelize</Title>
+                <Title style={styles.title}>HostelX</Title>
             </View>
             <View style={{justifyContent:"center",alignItems:"center",marginTop:0}}>
                
@@ -92,8 +109,8 @@ const DrawerContent = ({props,navigation}) =>{
                         </View>
                 </Animatable.View>
                 <View style={{justifyContent:"center",alignItems:"center",marginTop:15}}>
-                    <Text style={[styles.title,{marginRight:-10}]}>Manav Bhikadiya</Text>
-                    <Caption style={styles.caption}>@manavbhikadiya</Caption>
+                    <Text style={[styles.title,{marginRight:-10}]}>{name}</Text>
+                    <Caption style={styles.caption}>{email}</Caption>
                 </View>
             </View>
             <View style={{marginTop:20}}>
@@ -208,8 +225,8 @@ const styles = StyleSheet.create({
         marginRight:10
     },
     caption:{
-        fontSize:14,
-        lineHeight:14,
+        fontSize:11,
+        lineHeight:14,       
     },
     row:{
         marginTop:12,

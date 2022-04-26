@@ -33,7 +33,7 @@ const normalize = (size) => {
 };
 
 const MapScreen = ({ route, navigation }) => {
-  const { hostel_id, latitude, longitude, hostel_name, kms, college_name } = route.params;
+  const { hostel_id, latitude, longitude, hostel_name, kms, college_name, description } = route.params;
 
   return (
     <>
@@ -108,9 +108,14 @@ const MapScreen = ({ route, navigation }) => {
                   <Text style={styles.fromText}> From {college_name}</Text>
                 </View>
               )}
-              <View style={styles.bookButton}>
-                <Text style={styles.bookButtonText}>Book now</Text>
+              <View style={styles.kmsContainer}>
+                <Text style={styles.fromText}>{description}</Text>
               </View>
+              <TouchableOpacity onPress={()=>navigation.navigate('PaymentScreen')}>
+                <View style={styles.bookButton}>
+                  <Text style={styles.bookButtonText}>Book now</Text>
+                </View>
+              </TouchableOpacity>
             </View>
           </View>
         </ScrollView>
@@ -128,7 +133,7 @@ const styles = StyleSheet.create({
   hostelImageContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop:20
+    marginTop: 20
   },
   hostelImage: {
     width: wp(88),

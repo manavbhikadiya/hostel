@@ -64,6 +64,21 @@ const LoginScreen = ({ navigation }) => {
                             .catch(() => {
                                 navigation.navigate('LoginScreen');
                             })
+                        AsyncStorage.setItem('name', res.data.name)
+                            .then(() => {
+                                signIn();
+                            })
+                            .catch(() => {
+                                navigation.navigate('LoginScreen');
+                            })
+                        AsyncStorage.setItem('email', res.data.email)
+                            .then(() => {
+                                signIn();
+                            })
+                            .catch(() => {
+                                navigation.navigate('LoginScreen');
+                            })
+                        
                         setIsLoading(false);
                         setEmail(null);
                         setPassword(null);

@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: normalize(23),
     fontWeight: "bold",
-    color: "#f38172",
+    color: "#000066",
     marginLeft: 12,
     marginTop: 15,
   },
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   loginButton: {
     width: wp(60),
     height: hp(4.8),
-    backgroundColor: "#f38172",
+    backgroundColor: "#000066",
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",

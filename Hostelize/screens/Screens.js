@@ -2,11 +2,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Animated from 'react-native-reanimated';
 import MainTabScreen from '../MainTabScreen';
-import HomeScreen from './HomeScreen';
-// import HomeStackScreen from './HomeScreen';
-import OnBoarding from './OnBoarding'
 import ViewMore from './ViewMoreScreen';
 import MapScreen from './MapScreen';
+import PaymentScreen from './PaymentScreen';
 
 const ScreenStack = createStackNavigator();
 
@@ -17,6 +15,7 @@ const Screen = ({navigation,style}) =>{
                 <ScreenStack.Screen name="HomeDrawer" component={MainTabScreen}/>
                 <ScreenStack.Screen name="ViewMore" component={ViewMore}/>
                 <ScreenStack.Screen name="MapScreen" component={MapScreen}/>
+                <ScreenStack.Screen name="PaymentScreen" component={PaymentScreen}/>
             </ScreenStack.Navigator>
         </Animated.View>
     )

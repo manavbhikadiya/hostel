@@ -16,7 +16,6 @@ const Tab = createMaterialTopTabNavigator();
 
 const PrivacyPolicy = ({navigation}) => {
 
-
     useEffect(()=>{
         AsyncStorage.getItem('somekey')
         .then(req => JSON.parse(req))
@@ -59,7 +58,7 @@ const PrivacyPolicy = ({navigation}) => {
                     </Text>
                     <Text style={[styles.adminsection,{color:"#0000b3",marginTop:0}]}
                         onPress={() => Linking.openURL('https://manavbhikadiya.github.io/Laravel/')}>
-                        Hostelize.com
+                        https://hosteldashboards.herokuapp.com/
                     </Text>
                     <Text style={[styles.adminsection]}>
                         Admin can handle their hostel data in this website theyy can enter the college name
@@ -78,7 +77,7 @@ const PrivacyPolicy = ({navigation}) => {
                         <TextInput
                         style={styles.TextInput}
                         placeholder="Email."
-                        placeholderTextColor="#003f5c"
+                        placeholderTextColor="#000066"
                         />
                     </View>
             
@@ -87,7 +86,7 @@ const PrivacyPolicy = ({navigation}) => {
                         style={[styles.textArea,styles.TextInput]}
                         underlineColorAndroid="transparent"
                         placeholder="Type something"
-                        placeholderTextColor="grey"
+                        placeholderTextColor="#000066"
                         numberOfLines={10}
                         multiline={true}
                     />
@@ -207,6 +206,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         marginLeft: 20,
+        color:"#000066"
       },
      
       forgot_button: {
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "#f38172",
+        backgroundColor: "#000066",
       },
       loginText:{
           color:"#fff",

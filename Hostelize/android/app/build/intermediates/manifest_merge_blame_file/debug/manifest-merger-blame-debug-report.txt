@@ -69,7 +69,7 @@
 40        android:allowBackup="false"
 40-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:13:7-34
 41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-41-->[androidx.core:core:1.3.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\3975ffd70914deb17405b14313b8e4ba\core-1.3.1\AndroidManifest.xml:24:18-86
+41-->[androidx.core:core:1.3.2] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\f03ec885b8fabdebb4f0d3bbade5009e\core-1.3.2\AndroidManifest.xml:24:18-86
 42        android:debuggable="true"
 43        android:icon="@mipmap/ic_launcher"
 43-->C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\android\app\src\main\AndroidManifest.xml:12:7-41
@@ -154,29 +154,134 @@
 85-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:17-67
 86                android:resource="@xml/imagepicker_provider_paths" />
 86-->[:react-native-image-crop-picker] C:\Users\USER\Desktop\Reactnative tuts\HostelSearching - Copy\Hostelize\node_modules\react-native-image-crop-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:17-55
-87        </provider> <!-- Needs to be explicitly declared on P+ -->
-88        <uses-library
-88-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-89            android:name="org.apache.http.legacy"
-89-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-90            android:required="false" />
-90-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-91
+87        </provider>
+88
+89        <activity
+89-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:10:9-12:57
+90            android:name="com.stripe.android.view.AddPaymentMethodActivity"
+90-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:11:13-76
+91            android:theme="@style/StripeDefaultTheme" />
+91-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:12:13-54
 92        <activity
-92-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-93            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-93-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-94            android:exported="false"
-94-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-95            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-95-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-96
-97        <meta-data
-97-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-98            android:name="com.google.android.gms.version"
-98-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-99            android:value="@integer/google_play_services_version" />
-99-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-100    </application>
-101
-102</manifest>
+92-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:13:9-15:57
+93            android:name="com.stripe.android.view.PaymentMethodsActivity"
+93-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:14:13-74
+94            android:theme="@style/StripeDefaultTheme" />
+94-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:15:13-54
+95        <activity
+95-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:16:9-18:57
+96            android:name="com.stripe.android.view.PaymentFlowActivity"
+96-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:17:13-71
+97            android:theme="@style/StripeDefaultTheme" />
+97-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:18:13-54
+98        <activity
+98-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:19:9-22:58
+99            android:name="com.stripe.android.view.PaymentAuthWebViewActivity"
+99-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:20:13-78
+100            android:theme="@style/StripeDefaultTheme"
+100-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:21:13-54
+101            android:windowSoftInputMode="adjustResize" />
+101-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:22:13-55
+102        <activity
+102-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:23:9-25:61
+103            android:name="com.stripe.android.view.PaymentRelayActivity"
+103-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:24:13-72
+104            android:theme="@style/StripeTransparentTheme" />
+104-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:25:13-58
+105        <!--
+106        Set android:launchMode="singleTop" so that the StripeBrowserLauncherActivity instance that
+107        launched the browser Activity will also handle the return URL deep link.
+108        -->
+109        <activity
+109-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:31:9-47:20
+110            android:name="com.stripe.android.payments.StripeBrowserLauncherActivity"
+110-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:32:13-85
+111            android:launchMode="singleTop"
+111-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:33:13-43
+112            android:theme="@style/StripeTransparentTheme" >
+112-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:34:13-58
+113            <intent-filter>
+113-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:35:13-46:29
+114                <action android:name="android.intent.action.VIEW" />
+114-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:36:17-69
+114-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:36:25-66
+115
+116                <category android:name="android.intent.category.DEFAULT" />
+116-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:38:17-76
+116-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:38:27-73
+117                <category android:name="android.intent.category.BROWSABLE" />
+117-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:39:17-78
+117-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:39:27-75
+118
+119                <!-- Must match `DefaultReturnUrl#value`. -->
+120                <data
+120-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:42:17-45:50
+121                    android:host="payment_return_url"
+121-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:43:21-54
+122                    android:path="/com.hostelize"
+122-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:44:21-53
+123                    android:scheme="stripesdk" />
+123-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:45:21-47
+124            </intent-filter>
+125        </activity>
+126        <activity
+126-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:48:9-50:57
+127            android:name="com.stripe.android.view.Stripe3ds2CompletionActivity"
+127-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:49:13-80
+128            android:theme="@style/StripeDefaultTheme" />
+128-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:50:13-54
+129        <activity
+129-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:51:9-53:69
+130            android:name="com.stripe.android.paymentsheet.PaymentSheetActivity"
+130-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:52:13-80
+131            android:theme="@style/StripePaymentSheetDefaultTheme" />
+131-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:53:13-66
+132        <activity
+132-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:54:9-56:69
+133            android:name="com.stripe.android.paymentsheet.PaymentOptionsActivity"
+133-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:55:13-82
+134            android:theme="@style/StripePaymentSheetDefaultTheme" />
+134-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:56:13-66
+135        <activity
+135-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:57:9-59:66
+136            android:name="com.stripe.android.googlepay.StripeGooglePayActivity"
+136-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:58:13-80
+137            android:theme="@style/StripeGooglePayDefaultTheme" />
+137-->[com.stripe:stripe-android:16.6.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\bf7df45750e839373cdd393b9568ac0e\jetified-stripe-android-16.6.1\AndroidManifest.xml:59:13-63
+138        <activity
+138-->[com.stripe:stripe-3ds2-android:5.3.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4fa8056f9ff582c09ea1c860f5c72a55\jetified-stripe-3ds2-android-5.3.0\AndroidManifest.xml:10:9-12:54
+139            android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity"
+139-->[com.stripe:stripe-3ds2-android:5.3.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4fa8056f9ff582c09ea1c860f5c72a55\jetified-stripe-3ds2-android-5.3.0\AndroidManifest.xml:11:13-81
+140            android:theme="@style/Stripe3DS2Theme" />
+140-->[com.stripe:stripe-3ds2-android:5.3.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4fa8056f9ff582c09ea1c860f5c72a55\jetified-stripe-3ds2-android-5.3.0\AndroidManifest.xml:12:13-51
+141        <activity
+141-->[com.stripe:stripe-3ds2-android:5.3.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4fa8056f9ff582c09ea1c860f5c72a55\jetified-stripe-3ds2-android-5.3.0\AndroidManifest.xml:13:9-15:54
+142            android:name="com.stripe.android.stripe3ds2.views.ChallengeProgressActivity"
+142-->[com.stripe:stripe-3ds2-android:5.3.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4fa8056f9ff582c09ea1c860f5c72a55\jetified-stripe-3ds2-android-5.3.0\AndroidManifest.xml:14:13-89
+143            android:theme="@style/Stripe3DS2Theme" /> <!-- Needs to be explicitly declared on P+ -->
+143-->[com.stripe:stripe-3ds2-android:5.3.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\4fa8056f9ff582c09ea1c860f5c72a55\jetified-stripe-3ds2-android-5.3.0\AndroidManifest.xml:15:13-51
+144        <uses-library
+144-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+145            android:name="org.apache.http.legacy"
+145-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+146            android:required="false" />
+146-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\faf3edd0a0a40b32e6c32885cc662e42\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+147
+148        <activity
+148-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+149            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+149-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+150            android:exported="false"
+150-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+151            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+151-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\2631375de80937c90cd3a1032ab35871\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+152
+153        <meta-data
+153-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+154            android:name="com.google.android.gms.version"
+154-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+155            android:value="@integer/google_play_services_version" />
+155-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\dcffa74d8d015470a7eae32b9eb648c7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+156    </application>
+157
+158</manifest>
