@@ -9,6 +9,7 @@ import {
     RefreshControl,
     ImageBackground,
     ActivityIndicator,
+    TextInput
 } from 'react-native';
 import { Icon } from 'react-native-eva-icons';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -18,6 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import axios from 'axios';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Modals from './Modals';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const { width, height } = Dimensions.get('window');
 
@@ -31,6 +33,10 @@ const ViewMore = ({ navigation, route }) => {
     const [name, setName] = useState([]);
     const [refreshing, setRefreshing] = React.useState(false);
     const [isLoading, setIsloading] = useState(false);
+    const [isCommentAdded, setIsCommentAdded] = useState(false);
+    const [comment, setReview] = useState(null);
+    const [commenter_name, setCommenterName] = useState(null);
+    const [hostelId,setHostelId] = useState(null)
     //rote params
     const { collegeName } = route.params;
 
@@ -59,6 +65,32 @@ const ViewMore = ({ navigation, route }) => {
             setRefreshing(false), getdata();
         });
     }, []);
+
+    const handleReview = (val) => {
+        setReview(val);
+    }
+
+    AsyncStorage.getItem('name')
+    .then((res) => {
+        setCommenterName(res);
+    })
+    .catch((e) => {
+        setCommenterName(null);
+    })
+
+    const submitReview = (hostel_id) => {
+        setIsCommentAdded(true)
+        setHostelId(hostel_id);
+        axios.post('https://hosteldashboards.herokuapp.com/hostel/addComment', { commenter_name, comment, hostel_id })
+            .then((res) => {
+                setIsCommentAdded(false)
+                setReview(null);
+            })
+            .catch((e) => {
+                setIsCommentAdded(false);
+                setReview(null);
+            })
+    }
 
     return (
         <View style={styles.container}>
@@ -120,7 +152,7 @@ const ViewMore = ({ navigation, route }) => {
                                             }}>
                                             <View style={{ flexDirection: 'row' }}>
                                                 <Text style={{ fontWeight: 'bold', fontSize: 17 }}>
-                                                    {hostelname.hostel_name}
+                                                    {hostelname.hostel_name} {commenter_name}
                                                 </Text>
                                                 <Text
                                                     style={{
@@ -174,21 +206,61 @@ const ViewMore = ({ navigation, route }) => {
                                                 </TouchableOpacity>
                                             </View>
                                         </View>
-                                        <TouchableOpacity
-                                            onPress={() => {
-                                                navigation.navigate('MapScreen', {
-                                                    hostel_id: hostelname.hostel_name,
-                                                    latitude: hostelname.latitude,
-                                                    longitude: hostelname.longitude,
-                                                    hostel_name: hostelname.hostel_name,
-                                                    kms: hostelname.kms,
-                                                    college_name: hostel.college_name,
-                                                });
-                                            }}>
-                                            <View style={styles.mapButton}>
-                                                <Text style={styles.mapText}>View on Map</Text>
-                                            </View>
-                                        </TouchableOpacity>
+                                        <View style={styles.girlsandboys}>
+                                            <TouchableOpacity
+                                                onPress={() => {
+                                                    navigation.navigate('MapScreen', {
+                                                        hostel_id: hostelname.hostel_name,
+                                                        latitude: hostelname.latitude,
+                                                        longitude: hostelname.longitude,
+                                                        hostel_name: hostelname.hostel_name,
+                                                        kms: hostelname.kms,
+                                                        college_name: hostel.college_name,
+                                                    });
+                                                }}>
+                                                <View style={styles.mapButton}>
+                                                    <Text style={styles.mapText}>View on Map</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                            {
+                                                hostelname.girls && hostelname.boys
+                                                    ?
+                                                    (
+                                                        <Text>Girl's & Boy's Hostel</Text>
+                                                    )
+                                                    : hostelname.boys
+                                                        ?
+                                                        (
+                                                            <Text>Boy's Hostel</Text>
+                                                        )
+                                                        :
+                                                        (
+                                                            <Text>Girl's Hostel</Text>
+                                                        )
+                                            }
+                                            <Text style={styles.detailHeading}>₹{hostelname.room_price}/ year</Text>
+                                        </View>
+                                        <View style={styles.writeReviewContainer}>
+                                            <TextInput
+                                                style={styles.input}
+                                                placeholder="Write your review..."
+                                                placeholderTextColor={'#000'}
+                                                onChangeText={(val) => handleReview(val)}
+                                                value={comment}
+                                            />
+                                            {
+                                                isCommentAdded && hostelname._id == hostelId
+                                                    ?
+                                                    (<ActivityIndicator color="#000066" size={30} />)
+                                                    :
+                                                    (
+                                                        <TouchableOpacity style={styles.postButton} onPress={() => submitReview(hostelname._id)}>
+                                                            <Text style={styles.postText}>Post</Text>
+                                                        </TouchableOpacity>
+                                                    )
+                                            }
+
+                                        </View>
                                         <View style={styles.comment}>
                                             <Rating
                                                 type="custom"
@@ -201,7 +273,7 @@ const ViewMore = ({ navigation, route }) => {
                                                 ratingTextColor="red"
                                                 imageSize={20}
                                             />
-                                            <Modals />
+                                            <Modals college_id={hostel._id}  hostel_id={hostelname._id}/>
                                         </View>
 
                                         <View style={styles.border}></View>
@@ -361,5 +433,27 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "space-around",
         marginTop: 20,
+    },
+    writeReviewContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    input: {
+        width: width / 1.5,
+        height: 40,
+        margin: 12,
+        padding: 10,
+        backgroundColor: "#f6f6f6",
+        borderRadius: 8,
+        color: "#737373",
+    },
+    postButton: {
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    postText: {
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#000066"
     }
 })

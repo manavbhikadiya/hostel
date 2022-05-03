@@ -1,16 +1,15 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
-const CommentCards = () => {
+const CommentCards = (props) => {
   return (
     <View style={styles.commentSection}>
       <View style={{flexDirection: 'row'}}>
-        <Text style={{fontWeight: 'bold'}}>Manav Bhikadiya</Text>
+        <Text style={{fontWeight: 'bold'}}>{props.commenter_name}</Text>
       </View>
       <View>
         <Text>
-          This hostel is amazing. They provide all the amenities that they shows
-          in the application.
+          {props.comment}
         </Text>
       </View>
     </View>

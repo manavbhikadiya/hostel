@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, ScrollView} from 'react-native';
+import {Text, View, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import Modal from 'react-native-modal';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Icon} from 'react-native-eva-icons';
-import {Rating} from 'react-native-ratings';
 import CommentCards from './CommentCards';
+import axios from 'axios';
+
+const { width, height } = Dimensions.get('screen');
 
 const Modals = props => {
   const [visible, setVisibility] = useState(false);
-
+  const [comments,setComments] = useState([]);
+  const [isLoading,setIsLoading] = useState(false);
   const toggleModal = () => {
     if (visible == false) {
       setVisibility(true);
@@ -17,11 +20,28 @@ const Modals = props => {
     }
   };
 
+  useEffect(()=>{
+    getAllComments();
+  },[]);
+
+  const getAllComments = () =>{
+    setIsLoading(true)
+    axios.get(`https://hosteldashboards.herokuapp.com/hostel/getComments/${props.college_id}/${props.hostel_id}`)
+    .then((res)=>{
+      setComments(res.data);
+      setIsLoading(false)
+    })
+    .catch(()=>{
+      console.log("error");
+      setIsLoading(false);
+    })
+  }
+
   return (
     <View>
       <Modal
         isVisible={visible}
-        style={{justifyContent: 'center', alignItems: 'center', height: 300}}
+        style={{justifyContent: 'center', alignItems: 'center'}}
         animationIn="flipInX"
         animationInTiming={800}
         animationOut="flipOutX"
@@ -40,7 +60,16 @@ const Modals = props => {
             </View>
           </View>
           <ScrollView>
-            <CommentCards />
+            {
+              comments.length != 0?
+              comments.map((comments,index)=>(
+                <CommentCards key={index} commenter_name={comments.commenter_name} comment={comments.comment}/>
+              ))
+              :
+              (
+                <Text style={styles.emptyComments}>No Comments found</Text>
+              )
+            }
           </ScrollView>
         </View>
       </Modal>
@@ -58,8 +87,8 @@ export default Modals;
 const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: 'white',
-    width: 350,
-    height: 450,
+    width: width-50,
+    height: height/2,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
@@ -111,4 +140,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     paddingVertical: 10,
   },
+  emptyComments:{
+    marginTop:100,
+    justifyContent:"center",
+    alignItems:"center"
+  }
 });
