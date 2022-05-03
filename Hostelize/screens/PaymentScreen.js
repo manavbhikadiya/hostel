@@ -29,7 +29,9 @@ const normalize = (size) => {
     }
 };
 
-const PaymentScreen = ({navigation}) => {
+const PaymentScreen = ({ route, navigation }) => {
+
+    const {room_price,hostel_name}  = route.params;
 
     const [cardNumber, setCardNumber] = useState(null);
     const [date, setDate] = useState(null);
@@ -72,6 +74,7 @@ const PaymentScreen = ({navigation}) => {
                     <View style={styles.headerContainer}>
                         <Text style={styles.headerText}>Book now</Text>
                     </View>
+                    <Text style={{marginTop:20,fontWeight:"bold",color:"#000066"}}>Total Price:    ₹{room_price}/year</Text>
                 </View>
                 <View style={styles.paymentCardContainer}>
                     {

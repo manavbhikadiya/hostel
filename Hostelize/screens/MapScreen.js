@@ -33,7 +33,7 @@ const normalize = (size) => {
 };
 
 const MapScreen = ({ route, navigation }) => {
-  const { hostel_id, latitude, longitude, hostel_name, kms, college_name, description } = route.params;
+  const { hostel_id, latitude, longitude, hostel_name, kms, college_name, description, room_price } = route.params;
 
   return (
     <>
@@ -111,11 +111,17 @@ const MapScreen = ({ route, navigation }) => {
               <View style={styles.kmsContainer}>
                 <Text style={styles.fromText}>{description}</Text>
               </View>
-              <TouchableOpacity onPress={()=>navigation.navigate('PaymentScreen')}>
+              <Text style={[styles.sectionTitle,{marginTop:20}]}>Room Price</Text>
+              <Text style={styles.hostelName}>₹{room_price}/year</Text>
+              <TouchableOpacity onPress={()=>navigation.navigate('PaymentScreen',{
+                room_price:room_price,
+                hostel_name:hostel_name
+              })}>
                 <View style={styles.bookButton}>
                   <Text style={styles.bookButtonText}>Book now</Text>
                 </View>
               </TouchableOpacity>
+              
             </View>
           </View>
         </ScrollView>

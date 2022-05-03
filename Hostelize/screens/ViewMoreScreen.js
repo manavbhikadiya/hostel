@@ -127,20 +127,40 @@ const ViewMore = ({ navigation, route }) => {
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
-                                                <TouchableOpacity onPress={() => {
-                                                    navigation.navigate('MapScreen', {
-                                                        hostel_id: hostelname.hostel_name,
-                                                        latitude: hostelname.latitude,
-                                                        longitude: hostelname.longitude,
-                                                        hostel_name: hostelname.hostel_name,
-                                                        kms: hostelname.kms,
-                                                        college_name: hostel.college_name
-                                                    })
-                                                }}>
-                                                    <View style={styles.mapButton}>
-                                                        <Text style={styles.mapText}>View on Map</Text>
-                                                    </View>
-                                                </TouchableOpacity>
+                                                <View style={styles.girlsandboys}>
+                                                    <TouchableOpacity onPress={() => {
+                                                        navigation.navigate('MapScreen', {
+                                                            hostel_id: hostelname.hostel_name,
+                                                            latitude: hostelname.latitude,
+                                                            longitude: hostelname.longitude,
+                                                            hostel_name: hostelname.hostel_name,
+                                                            kms: hostelname.kms,
+                                                            college_name: hostel.college_name,
+                                                            description: hostelname.description,
+                                                            room_price: hostelname.room_price
+                                                        })
+                                                    }}>
+                                                        <View style={styles.mapButton}>
+                                                            <Text style={styles.mapText}>View on Map</Text>
+                                                        </View>
+                                                    </TouchableOpacity>
+                                                    {
+                                                        hostelname.boys && hostelname.girls
+                                                        ?
+                                                        (
+                                                            <Text style={{ color: "#000066",fontWeight:'bold' }}>Girls & boys Hostel</Text>
+                                                        )
+                                                        : hostelname.girls?
+                                                        (
+                                                            <Text style={{ color: "#000066",fontWeight:'bold' }}>Girls Hostel</Text>
+                                                        )
+                                                        :
+                                                        (
+                                                            <Text style={{ color: "#000066",fontWeight:'bold' }}>Boys Hostel</Text>
+                                                        )
+                                                    }
+                                                    <Text>₹{hostelname.room_price}/year</Text>
+                                                </View>
                                                 <View style={styles.border}></View>
                                             </Animatable.View>
                                         ))
@@ -244,4 +264,9 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: "bold",
     },
+    girlsandboys: {
+        flexDirection: 'row',
+        justifyContent:"space-around",
+        marginTop:20,
+    }
 })

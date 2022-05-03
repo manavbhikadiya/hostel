@@ -157,6 +157,7 @@ const HomeScreen = ({ navigation }) => {
                                                                             <Text style={{ fontWeight: "bold" }}>Boy's & Girl's Hostel</Text>
                                                                         </View>
                                                                     ) 
+                                
                                                                     : 
                                                                     hostel.hostels[0].boys ? 
                                                                     (
@@ -183,6 +184,7 @@ const HomeScreen = ({ navigation }) => {
                                                                     kms: hostel.hostels[0].kms,
                                                                     college_name: hostel.college_name,
                                                                     description: hostel.hostels[0].description,
+                                                                    room_price: hostel.hostels[0].room_price
                                                                 })
                                                             }} style={{ backgroundColor: "#b3e0e5", width: 140, height: 35, borderRadius: 30, justifyContent: "center", alignItems: "center" }}>
                                                                 <Text style={{ color: "#000066", fontSize: 12 }}>View on map</Text>
