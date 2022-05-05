@@ -1,17 +1,31 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, ScrollView, Dimensions} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  Dimensions,
+  RefreshControl,
+  ActivityIndicator,
+} from 'react-native';
 import Modal from 'react-native-modal';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Icon} from 'react-native-eva-icons';
 import CommentCards from './CommentCards';
 import axios from 'axios';
 
-const { width, height } = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
+
+const wait = timeout => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};
 
 const Modals = props => {
   const [visible, setVisibility] = useState(false);
-  const [comments,setComments] = useState([]);
-  const [isLoading,setIsLoading] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [refreshing, setRefreshing] = React.useState(false);
+
   const toggleModal = () => {
     if (visible == false) {
       setVisibility(true);
@@ -20,22 +34,33 @@ const Modals = props => {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getAllComments();
-  },[]);
+  }, []);
 
-  const getAllComments = () =>{
-    setIsLoading(true)
-    axios.get(`https://hosteldashboards.herokuapp.com/hostel/getComments/${props.college_id}/${props.hostel_id}`)
-    .then((res)=>{
-      setComments(res.data);
-      setIsLoading(false)
-    })
-    .catch(()=>{
-      console.log("error");
-      setIsLoading(false);
-    })
-  }
+  const getAllComments = () => {
+    setIsLoading(true);
+    axios
+      .get(
+        `https://hosteldashboards.herokuapp.com/hostel/getComments/${props.college_id}/${props.hostel_id}`,
+      )
+      .then(res => {
+        setComments(res.data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        console.log('error');
+        setIsLoading(false);
+      });
+  };
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => {
+      getAllComments();
+      setRefreshing(false);
+    });
+  }, []);
 
   return (
     <View>
@@ -59,18 +84,33 @@ const Modals = props => {
               />
             </View>
           </View>
-          <ScrollView>
-            {
-              comments.length != 0?
-              comments.map((comments,index)=>(
-                <CommentCards key={index} commenter_name={comments.commenter_name} comment={comments.comment}/>
-              ))
-              :
-              (
-                <Text style={styles.emptyComments}>No Comments found</Text>
-              )
-            }
-          </ScrollView>
+          <View style={styles.scrollContainer}>
+            {isLoading ? (
+              <ActivityIndicator color="#000066" size={40} />
+            ) : (
+              <ScrollView
+                refreshControl={
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={onRefresh}
+                    colors={['#000066', '#3F3D56', '#F26161']}
+                    progressBackgroundColor="#fff"
+                  />
+                }>
+                {comments.length != 0 ? (
+                  comments.map((comments, index) => (
+                    <CommentCards
+                      key={index}
+                      commenter_name={comments.commenter_name}
+                      comment={comments.comment}
+                    />
+                  ))
+                ) : (
+                  <Text style={styles.emptyComments}>No Comments found</Text>
+                )}
+              </ScrollView>
+            )}
+          </View>
         </View>
       </Modal>
       <View style={styles.textImage}>
@@ -87,8 +127,8 @@ export default Modals;
 const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: 'white',
-    width: width-50,
-    height: height/2,
+    width: width - 50,
+    height: height / 2,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
@@ -140,9 +180,14 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     paddingVertical: 10,
   },
-  emptyComments:{
-    marginTop:100,
-    justifyContent:"center",
-    alignItems:"center"
-  }
+  emptyComments: {
+    marginTop: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scrollContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

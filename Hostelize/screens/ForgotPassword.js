@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -13,41 +13,43 @@ import {
   Animated,
   Alert,
   Image,
-} from "react-native";
+} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import * as Animatable from "react-native-animatable";
-import axios from "axios";
+} from 'react-native-responsive-screen';
+import * as Animatable from 'react-native-animatable';
+import axios from 'axios';
 
-const { width, height } = Dimensions.get("window");
+const {width, height} = Dimensions.get('window');
 
 const scale = width / 320;
 
-const normalize = (size) => {
+const normalize = size => {
   const newSize = size * scale;
-  if (Platform.OS === "ios") {
+  if (Platform.OS === 'ios') {
     return Math.round(PixelRatio.roundToNearestPixel(newSize));
   } else {
     return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
   }
 };
 
-const ForgotPassword = ({ navigation }) => {
+const ForgotPassword = ({navigation}) => {
   const [email, setEmail] = useState(null);
   const [isTextVisible, setIsTextVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleEmail = (email) => {
+  const handleEmail = email => {
     setEmail(email);
   };
 
   const submitData = () => {
     setIsLoading(true);
     axios
-      .post(`https://hosteldashboards.herokuapp.com/user/forgotpassword/${email}`)
-      .then((res) => {
+      .post(
+        `https://hosteldashboards.herokuapp.com/user/forgotpassword/${email}`,
+      )
+      .then(res => {
         if (res) {
           setTimeout(() => {
             setIsLoading(false);
@@ -57,14 +59,13 @@ const ForgotPassword = ({ navigation }) => {
           }, 3000);
         }
       })
-      .catch((e) => {
-        Alert.alert(
-          "Error Occur",
-          `${e.response.data.message}`,
-          [
-            { text: "OK", onPress: () => navigation.navigate("ForgotPasswordScreen") },
-          ]
-        );
+      .catch(e => {
+        Alert.alert('Error Occur', `${e.response.data.message}`, [
+          {
+            text: 'OK',
+            onPress: () => navigation.navigate('ForgotPasswordScreen'),
+          },
+        ]);
         setIsLoading(false);
       });
   };
@@ -73,7 +74,7 @@ const ForgotPassword = ({ navigation }) => {
     <>
       <View style={styles.container}>
         <Image
-          source={require("../assets/loginBack.jpg")}
+          source={require('../assets/loginBack.jpg')}
           style={styles.image}
         />
         <Animatable.View style={styles.loginContainer} animation="flipInX">
@@ -83,7 +84,7 @@ const ForgotPassword = ({ navigation }) => {
               style={styles.input}
               placeholder="Email"
               placeholderTextColor={'#000'}
-              onChangeText={(val) => handleEmail(val)}
+              onChangeText={val => handleEmail(val)}
               value={email}
             />
             {isTextVisible ? (
@@ -111,18 +112,18 @@ export default ForgotPassword;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: '#f2f2f2',
     paddingTop: 50,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   loginContainer: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     width: wp(80),
     height: hp(40),
     padding: 15,
     borderRadius: 8,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 12,
@@ -134,44 +135,44 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: normalize(23),
-    fontWeight: "bold",
-    color: "#000066",
+    fontWeight: 'bold',
+    color: '#000066',
     marginLeft: 12,
     marginTop: 15,
   },
   subText: {
     marginTop: 5,
-    color: "#cccccc",
+    color: '#cccccc',
     fontSize: normalize(14),
     marginLeft: 12,
   },
   loginFields: {
     marginTop: 20,
     // backgroundColor: "red",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   input: {
     width: wp(65),
     height: 40,
     margin: 12,
     padding: 10,
-    backgroundColor: "#f6f6f6",
+    backgroundColor: '#f6f6f6',
     borderRadius: 8,
-    color: "#737373",
+    color: '#737373',
   },
   sentText: {
-    color: "#f38172",
+    color: '#f38172',
   },
   loginButton: {
     width: wp(60),
     height: hp(4.8),
-    backgroundColor: "#000066",
+    backgroundColor: '#000066',
     borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 25,
-    shadowColor: "#999999",
+    shadowColor: '#999999',
     shadowOffset: {
       width: 0,
       height: 12,
@@ -182,31 +183,31 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   signInText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: normalize(14.5),
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   image: {
     flex: 1,
-    justifyContent: "center",
-    position: "absolute",
+    justifyContent: 'center',
+    position: 'absolute',
     width: width,
     height: height * 1.1,
-    backgroundColor: "rgba(0,0,0,1)",
+    backgroundColor: 'rgba(0,0,0,1)',
     opacity: 0.4,
   },
   registerTextContainer: {
     marginTop: 10,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   forgotText: {
-    color: "#000",
+    color: '#000',
   },
   registerText: {
-    color: "#f38172",
-    fontWeight: "bold",
+    color: '#f38172',
+    fontWeight: 'bold',
     marginLeft: 50,
   },
 });

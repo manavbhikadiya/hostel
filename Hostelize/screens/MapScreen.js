@@ -1,50 +1,60 @@
-import React, { cloneElement, useState } from "react";
+import React, {cloneElement, useState} from 'react';
 import {
   StyleSheet,
   View,
   Dimensions,
   Text,
-  Animated,
   ScrollView,
   Platform,
   PixelRatio,
-  Image,
-  TouchableOpacity
-} from "react-native";
-import MapView, { Polyline } from "react-native-maps";
+  TouchableOpacity,
+} from 'react-native';
+import MapView, {Polyline} from 'react-native-maps';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-const { width, height } = Dimensions.get("window");
-import { faLocationDot, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { Icon } from 'react-native-eva-icons';
+} from 'react-native-responsive-screen';
+const {width, height} = Dimensions.get('window');
+import {faLocationDot, faHeart} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {Icon} from 'react-native-eva-icons';
 
 const scale = width / 320;
 
-const normalize = (size) => {
+const normalize = size => {
   const newSize = size * scale;
-  if (Platform.OS === "ios") {
+  if (Platform.OS === 'ios') {
     return Math.round(PixelRatio.roundToNearestPixel(newSize));
   } else {
     return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
   }
 };
 
-const MapScreen = ({ route, navigation }) => {
-  const { hostel_id, latitude, longitude, hostel_name, kms, college_name, description, room_price } = route.params;
+const MapScreen = ({route, navigation}) => {
+  const {
+    hostel_id,
+    latitude,
+    longitude,
+    hostel_name,
+    kms,
+    college_name,
+    description,
+    room_price,
+  } = route.params;
 
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => navigation.goBack()} >
-          <Icon style={{ marginTop: 20, marginLeft: 30 }} name="arrow-back" width={30} height={30} fill="#4d0000" />
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Icon
+            style={{marginTop: 20, marginLeft: 30}}
+            name="arrow-back"
+            width={30}
+            height={30}
+            fill="#4d0000"
+          />
         </TouchableOpacity>
-        <ScrollView
-          endFillColor="#fcfbfe"
-          overScrollMode="never"
-        >
+        <ScrollView endFillColor="#fcfbfe" overScrollMode="never">
           <View style={styles.hostelImageContainer}>
             <View style={styles.hostelImage}>
               <MapView
@@ -55,13 +65,11 @@ const MapScreen = ({ route, navigation }) => {
                   longitude: longitude,
                   latitudeDelta: 0.01,
                   longitudeDelta: 0.0005,
-                }}
-              >
+                }}>
                 <MapView.Marker
-                  coordinate={{ latitude: latitude, longitude: longitude }}
+                  coordinate={{latitude: latitude, longitude: longitude}}
                   title={hostel_name}
-                  description={`${kms} Km from ${college_name}`}
-                >
+                  description={`${kms} Km from ${college_name}`}>
                   <View style={styles.markerIcon}>
                     <FontAwesomeIcon
                       icon={faLocationDot}
@@ -71,10 +79,9 @@ const MapScreen = ({ route, navigation }) => {
                   </View>
                 </MapView.Marker>
                 <MapView.Marker
-                  coordinate={{ latitude: latitude, longitude: longitude }}
+                  coordinate={{latitude: latitude, longitude: longitude}}
                   title={hostel_name}
-                  description={`${kms} Km from ${college_name}`}
-                >
+                  description={`${kms} Km from ${college_name}`}>
                   <View style={styles.markerIcon}>
                     <FontAwesomeIcon
                       icon={faLocationDot}
@@ -85,8 +92,8 @@ const MapScreen = ({ route, navigation }) => {
                 </MapView.Marker>
                 <Polyline
                   coordinates={[
-                    { latitude: latitude, longitude: longitude },
-                    { latitude: latitude, longitude: longitude },
+                    {latitude: latitude, longitude: longitude},
+                    {latitude: latitude, longitude: longitude},
                   ]}
                   strokeColor="#000"
                   strokeWidth={6}
@@ -111,17 +118,21 @@ const MapScreen = ({ route, navigation }) => {
               <View style={styles.kmsContainer}>
                 <Text style={styles.fromText}>{description}</Text>
               </View>
-              <Text style={[styles.sectionTitle,{marginTop:20}]}>Room Price</Text>
+              <Text style={[styles.sectionTitle, {marginTop: 20}]}>
+                Room Price
+              </Text>
               <Text style={styles.hostelName}>₹{room_price}/year</Text>
-              <TouchableOpacity onPress={()=>navigation.navigate('PaymentScreen',{
-                room_price:room_price,
-                hostel_name:hostel_name
-              })}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('PaymentScreen', {
+                    room_price: room_price,
+                    hostel_name: hostel_name,
+                  })
+                }>
                 <View style={styles.bookButton}>
                   <Text style={styles.bookButtonText}>Book now</Text>
                 </View>
               </TouchableOpacity>
-              
             </View>
           </View>
         </ScrollView>
@@ -134,21 +145,21 @@ export default MapScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   hostelImageContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
   },
   hostelImage: {
     width: wp(88),
     height: height / 1.5,
-    backgroundColor: "yellow",
+    backgroundColor: 'yellow',
     borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    overflow: "hidden",
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
   },
   map: {
     width: wp(88),
@@ -158,8 +169,8 @@ const styles = StyleSheet.create({
   markerIcon: {
     width: 50,
     height: 50,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   bottomSection: {
     marginTop: 20,
@@ -169,45 +180,45 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 23,
-    fontStyle: "normal",
-    color: "#232323",
-    fontWeight: "bold",
+    fontStyle: 'normal',
+    color: '#232323',
+    fontWeight: 'bold',
   },
   hostelName: {
     fontSize: normalize(15),
-    fontWeight: "normal",
-    color: "#000",
+    fontWeight: 'normal',
+    color: '#000',
     marginTop: 20,
   },
   kmsContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginTop: 10,
   },
   kmsText: {
     fontSize: normalize(20),
-    fontWeight: "bold",
-    color: "#f38172",
+    fontWeight: 'bold',
+    color: '#f38172',
   },
   fromText: {
     fontSize: normalize(14),
     marginTop: 10,
-    color: "#000",
-    fontWeight: "bold",
+    color: '#000',
+    fontWeight: 'bold',
   },
   bookButton: {
     marginTop: 35,
-    backgroundColor: "#54b9c5",
+    backgroundColor: '#54b9c5',
     width: wp(80),
     height: hp(5),
     borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginLeft: 10,
-    marginBottom: 100
+    marginBottom: 100,
   },
   bookButtonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: normalize(14),
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });

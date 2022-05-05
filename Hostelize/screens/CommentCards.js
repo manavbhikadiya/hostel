@@ -1,16 +1,14 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
-const CommentCards = (props) => {
+const CommentCards = props => {
   return (
     <View style={styles.commentSection}>
       <View style={{flexDirection: 'row'}}>
         <Text style={{fontWeight: 'bold'}}>{props.commenter_name}</Text>
       </View>
       <View>
-        <Text>
-          {props.comment}
-        </Text>
+        <Text>{props.comment}</Text>
       </View>
     </View>
   );
