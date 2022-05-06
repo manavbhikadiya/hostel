@@ -221,6 +221,8 @@ const ViewMore = ({navigation, route}) => {
                               hostel_name: hostelname.hostel_name,
                               kms: hostelname.kms,
                               college_name: hostel.college_name,
+                              description: hostelname.description,
+                              room_price: hostelname.room_price
                             });
                           }}>
                           <View style={styles.mapButton}>
